@@ -5,9 +5,3 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-body {
-  background-image: url("../src/images/RailBoots.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
