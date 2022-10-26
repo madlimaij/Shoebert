@@ -1,6 +1,6 @@
-body html{
-  margin: 30;
-  font-family:"JetBrains Mono", Tahoma, Geneva, Verdana, sans-serif;
+body,
+html {
+  font-family: "JetBrains Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
