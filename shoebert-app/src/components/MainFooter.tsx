@@ -14,7 +14,7 @@ const useStyles = createUseStyles ({
     height: 102,
     bottom: 0,
     maxWidth: "100%",
-    backgroundColor: theme.colors.pink,
+    backgroundColor: theme.colors.brown,
     
      
 },

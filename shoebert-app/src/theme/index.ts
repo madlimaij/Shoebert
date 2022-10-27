@@ -6,7 +6,8 @@ const theme = {
     lightpink: "#F6D4E2",
     pink: "#F3498F",
     brown: "#BA855F",
-    lightBrown: "DEC4B2",
+    lightBrown: "#DEC4B2",
+    white: "FFFFFF"
   },
 
   spacing: {
