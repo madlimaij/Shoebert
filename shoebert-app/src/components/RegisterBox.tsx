@@ -29,10 +29,10 @@ const useStyles = createUseStyles({
     margin: 5,
     maxWidth: "100%",
     background: theme.colors.lightLightPink,
-    //*padding: theme.spacing.s,
+    padding: theme.spacing.s,
     border: [1, "dashed", theme.colors.pink],
-    text: theme.typography.h4,
-    fontFamily: theme.font.fontFamily
+    fontSize: theme.typography.h4,
+    fontFamily: theme.font.fontFamily,
   },
 
 

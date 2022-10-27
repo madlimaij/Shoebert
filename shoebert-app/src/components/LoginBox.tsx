@@ -25,9 +25,10 @@ const useStyles = createUseStyles({
     maxWidth: "100%",
     color: theme.colors.black,
     padding: theme.spacing.s,
-    background: "#fff0f0",
+    background: theme.colors.lightLightPink,
     border: [1, "dashed", theme.colors.pink],
     fontSize: theme.typography.h4,
+    fontFamily: theme.font.fontFamily,
   },
 
   link: {
@@ -57,7 +58,7 @@ const LoginBox = () => {
       <form>
         <input
           type="text"
-          placeholder="e-posti aadress"
+          placeholder="E-posti aadress"
           className={classes.inputBox}
         />{" "}
         <br />
@@ -86,8 +87,6 @@ const LoginBox = () => {
 };
 
 //Todo Buttoni pagelink vale! Button vaja siin sees ümber kujundada?
-//Todo placeholder font
 //kogu container keskele ja vasakule? Kuidas teha
-//Todo fontFamily on theme, kastis on lightlightpink
 
 export default LoginBox;

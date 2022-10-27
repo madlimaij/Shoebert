@@ -8,18 +8,19 @@ import theme from "../theme";
 
 const useStyles = createUseStyles ({
     footer: {
-    position: "relative",
+    position: "fixed",
     display: "flex",    
     justifyContent: "center",
     height: 102,
     bottom: 0,
-    maxWidth: "100%",
-    backgroundColor: theme.colors.pink,
+    width: "100%",
+    backgroundColor: theme.colors.lightBrown,
     
      
 },
 
    title: {
+        fontFamily: theme.font.fontFamily,
         color: theme.colors.black,
         fontSize: theme.typography.body,
         fontWeight: "400px",
