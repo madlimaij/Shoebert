@@ -1,9 +1,13 @@
 import React from "react";
+import Footer from "../components/Footer";
 import LoginBox from "../components/LoginBox";
+
 
 const LoginPage =() =>{
     return (
-        <LoginBox/>
+        <div>
+        <LoginBox/>,
+        <Footer/></div>
     )
 }
 
