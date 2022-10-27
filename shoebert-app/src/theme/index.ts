@@ -3,11 +3,12 @@ const theme = {
   colors: {
     black: "#232323",
     gray: "#D5D5D5",
-    lightpink: "#F6D4E2",
+    lightPink: "#F6D4E2",
     pink: "#F3498F",
     brown: "#BA855F",
     lightBrown: "#DEC4B2",
-    white: "FFFFFF"
+    lightLightPink: "#FFF0F0",
+    white: "#FFFFFF",
   },
 
   spacing: {
@@ -31,7 +32,11 @@ typography: {
     h4: 20, 
     body: 16, 
     button: 16,
-}
+},
+font: {
+  fontFamily: "JetBrains Mono",
+},
+
 
 };
 
