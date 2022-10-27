@@ -4,12 +4,6 @@ import RailBoots from "../images/RailBoots.jpg";
 import theme from "../theme";
 
 const useStyles = createUseStyles({
-  navPink: {
-    backgroundColor: theme.colors.pink,
-    textAlign: "center",
-    heigth: "79px",
-    padding: 25,
-  },
   gap: {
     padding: 5,
     opacity: 0,
@@ -53,7 +47,6 @@ const LandingBody: React.FC = () => {
       }}
     >
       <div className={classes.gap}></div>
-      <div className={classes.navPink}>{adText}</div>
       <div className={classes.slogan}>
         Mehised saapad. Poriloikudes keksimiseks.
         {/* @Todo: Tekst muudetavaks? Tekst vahetub koos pildiga? */}
