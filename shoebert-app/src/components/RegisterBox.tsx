@@ -35,6 +35,20 @@ const useStyles = createUseStyles({
     fontFamily: theme.font.fontFamily,
   },
 
+  button: {
+    backgroundColor: "#dedede"/*vaja lisada theme)*/,
+    cursor: "pointer",
+    color: theme.colors.black,
+    border: "none",
+    width: 470,
+    maxWidth: "100%",
+    fontSize: theme.typography.h4,
+    fontFamily: theme.font.fontFamily,
+    padding: theme.spacing.s,
+    transition: "background .2s ease-in-out",
+      "&:hover": {
+        background: theme.colors.gray,
+  }},
 
 
 });
@@ -51,11 +65,12 @@ const RegisterBox = () => {
           <input className={classes.field} type="text" placeholder = "Salasõna"/> <br/>
           <input className={classes.field} type="text" placeholder = "Korda salasõna"/> <br/>
         </form>
-        <Button title = "Registreeru" pageLink = "/login" ></Button>
+      <a href="/login"> 
+      <button className={classes.button}>Logi sisse</button>
+      </a>
       </div>
     )
 }
 
-//Todo: buttoni link
 
 export default RegisterBox;
