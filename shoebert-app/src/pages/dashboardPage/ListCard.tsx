@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "./Button";
+import Button from "../../components/Button";
 import { createUseStyles } from "react-jss";
-import theme from "../theme";
-import Saabas from "../images/Saabas.png";
+import theme from "../../theme";
+import Saabas from "../../images/Saabas.png";
 
 const useStyles = createUseStyles({
   container: {
@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
     position: "relative",
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-evenly"
+    justifyContent: "space-evenly",
   },
 
   title: {
@@ -20,13 +20,13 @@ const useStyles = createUseStyles({
     fontSize: theme.typography.h4,
     fontFamily: theme.font.fontFamily,
     justifyContent: "left",
-    alignItems: "left"
+    alignItems: "left",
   },
 
   price: {
     color: theme.colors.black,
     fontSize: theme.typography.h3,
-    alignItems: "left"
+    alignItems: "left",
   },
 
   description: {
@@ -34,21 +34,20 @@ const useStyles = createUseStyles({
     fontSize: theme.typography.body,
     fontFamily: theme.font.fontFamily,
     justifyContent: "left",
-    alignItems: "left"
+    alignItems: "left",
   },
 
   img: {
     width: 200,
     height: 200,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
 
   dropdown: {
     color: theme.colors.black,
     fontSize: theme.typography.body,
     fontFamily: theme.font.fontFamily,
-    
   },
 
   value: {
@@ -67,7 +66,7 @@ const useStyles = createUseStyles({
     //height: 300,
     background: theme.colors.gray,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
 
   flexItem2: {
@@ -78,7 +77,7 @@ const useStyles = createUseStyles({
   flexItem3: {
     alignItems: "right",
     padding: theme.spacing.xl,
-    background: theme.colors.gray
+    background: theme.colors.gray,
   },
 });
 
@@ -87,27 +86,30 @@ const ListCard = () => {
 
   return (
     <div className={classes.container}>
-        <div className={classes.flexItem1}>
+      <div className={classes.flexItem1}>
         <div className={classes.img}>
-        <img src={Saabas} alt="Saabas" />
+          <img src={Saabas} alt="Saabas" />
+        </div>
       </div>
-        </div>
-        <div className={classes.flexItem2}>
+      <div className={classes.flexItem2}>
         <div className={classes.title}>MEESTE PENIKOORMASAAPAD</div>
-      <div className={classes.description}>Soojad saapad, läigivad hästi!</div>
-      <label className={classes.dropdown} htmlFor="size">Vali suurus:</label>
-      <select className={classes.value} name="size" id="size">
-        <option value="36">36</option>
-        <option value="38">38</option>
-        <option value="40">40</option>
-        <option value="43">43</option>
-      </select>
+        <div className={classes.description}>
+          Soojad saapad, läigivad hästi!
         </div>
-        <div className={classes.flexItem3}>
+        <label className={classes.dropdown} htmlFor="size">
+          Vali suurus:
+        </label>
+        <select className={classes.value} name="size" id="size">
+          <option value="36">36</option>
+          <option value="38">38</option>
+          <option value="40">40</option>
+          <option value="43">43</option>
+        </select>
+      </div>
+      <div className={classes.flexItem3}>
         <div className={classes.price}>132,12 €</div>
         <Button title="Lisa korvi" pageLink="/login"></Button>
-        </div>
-
+      </div>
     </div>
   );
 };

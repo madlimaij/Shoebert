@@ -9,12 +9,13 @@ const useStyles = createUseStyles({
     backgroundColor: "white",
     display: "flex",
     justifyContent: "space-between",
-    padding: 40,
+    padding: 30,
+    marginBottom: 5,
   },
   logoPlaceholder: {
     //Võiks asendada buttoni laiusega, et brändinimi tuleks täpselt keskele?
     width: 227,
-    minWith: 227,/*Kuidas lahendada see, et poenimi ei kaoks logo taha? */
+    minWith: 227 /*Kuidas lahendada see, et poenimi ei kaoks logo taha? */,
     top: 10,
     left: 15,
   },
@@ -30,11 +31,15 @@ const useStyles = createUseStyles({
     fontFamily: theme.font.fontFamily,
     padding: theme.spacing.s,
     transition: "background .2s ease-in-out",
-      "&:hover": {
-        borderColor: theme.colors.pink,
-        color: theme.colors.pink,
-  }},
-
+    "&:hover": {
+      borderColor: theme.colors.pink,
+      color: theme.colors.pink,
+    },
+  },
+  space: {
+    opacity: 100,
+    padding: 5,
+  },
 });
 
 const Navbar: React.FC = () => {
@@ -44,9 +49,12 @@ const Navbar: React.FC = () => {
       <div className={classes.navWhite}>
         <div className={classes.logoPlaceholder}></div>
         <img src={NavigationPng} alt="NavigationPng" />
-      <a href="/login"> 
-      <button className={classes.button}>Logi sisse</button>
-      </a>
+        <a href="/login">
+          <button className={classes.button}>Logi sisse</button>
+        </a>
+      </div>
+      <div className="space">
+        <p></p>
       </div>
     </div>
   );

@@ -1,12 +1,12 @@
 import React from "react";
-import Cart from "../components/Cart";
-import Footer from "../components/Footer";
-import ListCard from "../components/ListCard";
+import Cart from "./Cart";
+import Footer from "../../components/Footer";
+import ListCard from "./ListCard";
 import { createUseStyles } from "react-jss";
-import theme from "../theme";
-import PinkDiv from "../components/PinkDiv";
-import LogoComp from "../components/LogoComp";
-import LogoTrans from "../images/Logo_trans_png.png";
+import theme from "../../theme";
+import PinkDiv from "../../components/PinkDiv";
+import LogoComp from "../../components/LogoComp";
+import LogoTrans from "../../images/Logo_trans_png.png";
 
 const useStyles = createUseStyles({
   container: {
@@ -33,7 +33,6 @@ const useStyles = createUseStyles({
     color: theme.colors.black,
   },
 
- */
   pinkDiv: {
     backgroundColor: theme.colors.lightPink,
     textAlign: "center",

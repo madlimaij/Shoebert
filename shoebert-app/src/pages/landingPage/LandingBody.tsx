@@ -1,12 +1,17 @@
+import { NONAME } from "dns";
 import React from "react";
 import { createUseStyles } from "react-jss";
-import RailBoots from "../images/RailBoots.jpg";
-import theme from "../theme";
+import RailBoots from "../../images/RailBoots.jpg";
+import theme from "../../theme";
 
 const useStyles = createUseStyles({
-  gap: {
-    padding: 5,
-    opacity: 0,
+  container: {
+    backgroundImage: `url(${RailBoots})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    minWidth: "100%",
+    minHeight: "100%",
+    height: "100vh",
   },
   buttonGoShop: {
     position: "fixed",
@@ -34,19 +39,7 @@ const LandingBody: React.FC = () => {
   const adText = "Seitsmepenikoormasaapad -70%"; //@Todo tee muutuja admin page'i kaudu muudetavaks.
   const classes = useStyles();
   return (
-    <div
-      style={{
-        backgroundImage: `url('${RailBoots}'`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        minWidth: "100%",
-        minHeight: "100%",
-        height: "auto",
-        position: "absolute",
-        left: 0,
-      }}
-    >
-      <div className={classes.gap}></div>
+    <div className={classes.container}>
       <div className={classes.slogan}>
         Mehised saapad. Poriloikudes keksimiseks.
         {/* @Todo: Tekst muudetavaks? Tekst vahetub koos pildiga? */}

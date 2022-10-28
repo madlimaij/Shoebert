@@ -1,12 +1,12 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 
-import LandingBody from "../components/LandingBody";
-import LogoComp from "../components/LogoComp";
-import MainFooter from "../components/MainFooter";
-import PinkDiv from "../components/PinkDiv";
-import theme from "../theme";
-import LogoWhite from "../images/Logo_white_png.png";
+import LandingBody from "./LandingBody";
+import LogoComp from "../../components/LogoComp";
+import MainFooter from "../../components/MainFooter";
+import PinkDiv from "../../components/PinkDiv";
+import theme from "../../theme";
+import LogoWhite from "../../images/Logo_white_png.png";
 
 const useStyles = createUseStyles({
   pinkDiv: {
@@ -26,7 +26,7 @@ const LandingPage = () => {
       <LogoComp logosource={LogoWhite} />
       <PinkDiv cname={classes.pinkDiv} adtext={adText} />
       <LandingBody />
-      <MainFooter />
+      {/*       <MainFooter /> */}
     </div>
   );
 };
