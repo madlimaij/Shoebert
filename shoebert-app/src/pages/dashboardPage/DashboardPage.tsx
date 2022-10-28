@@ -1,13 +1,11 @@
 import React from "react";
-import Cart from "../components/Cart";
-import Footer from "../components/Footer";
-import ListCard from "../components/ListCard";
 import { createUseStyles } from "react-jss";
-import theme from "../theme";
-import PinkDiv from "../components/PinkDiv";
-import LogoComp from "../components/LogoComp";
-import LogoTrans from "../images/Logo_trans_png.png";
-import Button from "../components/Button";
+import LogoTrans from "../../images/Logo_trans_png.png";
+import { Button, Footer, LogoComp, PinkDiv } from "../../components";
+import Cart from "./Cart";
+import ListCard from "./ListCard";
+import theme from "../../theme";
+
 const useStyles = createUseStyles({
   container: {
     display: "flex",
@@ -60,7 +58,6 @@ const DashboardPage = () => {
         <a href="/">
           <Button title={"Logi välja"} />
         </a>
-        <Footer />
       </div>
     </div>
   );

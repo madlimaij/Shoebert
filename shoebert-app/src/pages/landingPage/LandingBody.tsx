@@ -1,4 +1,4 @@
-import { NONAME } from "dns";
+
 import React from "react";
 import { createUseStyles } from "react-jss";
 import RailBoots from "../../images/RailBoots.jpg";

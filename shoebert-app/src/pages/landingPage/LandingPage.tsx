@@ -1,13 +1,12 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import LandingBody from "../components/LandingBody";
-import LogoComp from "../components/LogoComp";
-import MainFooter from "../components/MainFooter";
-import PinkDiv from "../components/PinkDiv";
-import theme from "../theme";
-import LogoWhite from "../images/Logo_white_png.png";
-import Button from "../components/Button";
-import { useHref } from "react-router-dom";
+import { LogoComp, PinkDiv, Button } from "../../components";
+import MainFooter from "../../components/MainFooter";
+import theme from "../../theme";
+
+import LogoWhite from "../../images/Logo_white_png.png";
+import LandingBody from "./LandingBody";
+
 const useStyles = createUseStyles({
   pinkDiv: {
     backgroundColor: theme.colors.pink,
@@ -25,7 +24,6 @@ const LandingPage = () => {
       <LogoComp logosource={LogoWhite} />
       <PinkDiv cname={classes.pinkDiv} adtext={adText} />
       <LandingBody />
-      <MainFooter />
       <a href="/login">
         <Button title={"Logi sisse"} />
       </a>
