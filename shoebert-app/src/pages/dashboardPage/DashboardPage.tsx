@@ -8,7 +8,6 @@ import PinkDiv from "../components/PinkDiv";
 import LogoComp from "../components/LogoComp";
 import LogoTrans from "../images/Logo_trans_png.png";
 import Button from "../components/Button";
-
 const useStyles = createUseStyles({
   container: {
     display: "flex",
@@ -22,7 +21,7 @@ const useStyles = createUseStyles({
     display: "flex",
     flexDirection: "column",
     flexGrow: "2",
-    width: "100%"
+    width: "100%",
     /* color: theme.colors.black,
     fontSize: theme.typography.h4,
     fontFamily: theme.font.fontFamily */
@@ -32,9 +31,8 @@ const useStyles = createUseStyles({
     border: [1, theme.colors.black],
     /*color: theme.colors.black,*/
     flexGrow: "1",
-    height: "100%"
+    height: "100%",
   },
-
   pinkDiv: {
     backgroundColor: theme.colors.lightPink,
     textAlign: "center",
@@ -43,7 +41,6 @@ const useStyles = createUseStyles({
     fontSize: theme.spacing.l,
   },
 });
-
 const DashboardPage = () => {
   const classes = useStyles();
   const adText = "Tere tulemast, Kasutaja!"; //@Todo: muuda kasutaja dünaamiliseks.
@@ -68,5 +65,4 @@ const DashboardPage = () => {
     </div>
   );
 };
-
 export default DashboardPage;

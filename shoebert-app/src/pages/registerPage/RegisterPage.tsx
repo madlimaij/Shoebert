@@ -7,7 +7,6 @@ import RegisterBox from "../components/RegisterBox";
 import theme from "../theme";
 import LogoTrans from "../images/Logo_trans_png.png";
 import Button from "../components/Button";
-
 const useStyles = createUseStyles({
   pinkDiv: {
     backgroundColor: theme.colors.lightPink,
@@ -16,7 +15,6 @@ const useStyles = createUseStyles({
     fontSize: theme.spacing.l,
   },
 });
-
 const RegisterPage = () => {
   const classes = useStyles();
   return (
@@ -25,11 +23,10 @@ const RegisterPage = () => {
       <PinkDiv cname={classes.pinkDiv} />
       <RegisterBox />
       <a href="/login">
-          <Button title={"Logi sisse"} />
-        </a>
+        <Button title={"Logi sisse"} />
+      </a>
       <Footer />
     </div>
   );
 };
-
 export default RegisterPage;

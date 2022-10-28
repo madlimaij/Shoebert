@@ -8,7 +8,7 @@ const useStyles = createUseStyles({
     zIndex: 100,
     top: 10,
     left: 15,
-    "@media (max-width: 900px)": {
+    "@media (max-width: 1000px)": {
       display: "none",
     },
   },
@@ -22,12 +22,14 @@ const LogoComp: React.FC<LogoCompProps> = (props) => {
   const classes = useStyles();
   return (
     <div>
-      <a href={"/"}><img
-        src={props.logosource}
-        alt="Niperbond"
-        className={classes.logo}
-        //z-index toob kõige ette
-      /></a>
+      <a href={"/"}>
+        <img
+          src={props.logosource}
+          alt="Niperbond"
+          className={classes.logo}
+          //z-index toob kõige ette
+        />
+      </a>
     </div>
   );
 };

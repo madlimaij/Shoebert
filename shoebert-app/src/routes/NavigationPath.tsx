@@ -1,7 +1,4 @@
-import DashboardPage from "../pages/DashboardPage";
-import LandingPage from "../pages/LandingPage";
-import LoginPage from "../pages/LoginPage";
-import RegisterPage from "../pages/RegisterPage";
+import { DashboardPage, LandingPage, LoginPage, RegisterPage } from "../pages";
 
 type NavType = {
   name: string;

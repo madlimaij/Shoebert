@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "./Button";
+import Button from "../../components/Button";
 import { createUseStyles } from "react-jss";
-import theme from "../theme";
-import Saabas from "../images/Saabas.png";
+import theme from "../../theme";
+import Saabas from "../../images/Saabas.png";
 
 const useStyles = createUseStyles({
   container: {
@@ -10,21 +10,21 @@ const useStyles = createUseStyles({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    alignContent: "left"
+    alignContent: "left",
   },
 
   title: {
     color: theme.colors.black,
     fontSize: theme.typography.h4,
     fontFamily: theme.font.fontFamily,
-    margin: 20
+    margin: 20,
   },
 
   price: {
     color: theme.colors.black,
     fontSize: theme.typography.h3,
     alignItems: "left",
-    margin: 20
+    margin: 20,
   },
 
   description: {
@@ -37,14 +37,14 @@ const useStyles = createUseStyles({
   img: {
     justifyContent: "center",
     alignItems: "center",
-    padding: 20
+    padding: 20,
   },
 
   dropdown: {
     color: theme.colors.black,
     fontSize: theme.typography.body,
     fontFamily: theme.font.fontFamily,
-    margin: 20
+    margin: 20,
   },
 
   value: {
@@ -61,17 +61,17 @@ const useStyles = createUseStyles({
   flexItem1: {
     //width: 300,
     //height: 300,
-   background: theme.colors.gray,
+    background: theme.colors.gray,
   },
 
   flexItem2: {
-   padding: 20,
-   background: theme.colors.lightGray,
+    padding: 20,
+    background: theme.colors.lightGray,
   },
 
   flexItem3: {
     padding: 20,
-    background: theme.colors.gray
+    background: theme.colors.gray,
   },
 });
 
@@ -80,27 +80,30 @@ const ListCard = () => {
 
   return (
     <div className={classes.container}>
-        <div className={classes.flexItem1}>
+      <div className={classes.flexItem1}>
         <div className={classes.img}>
-        <img src={Saabas} alt="Saabas" />
+          <img src={Saabas} alt="Saabas" />
+        </div>
       </div>
-        </div>
-        <div className={classes.flexItem2}>
+      <div className={classes.flexItem2}>
         <div className={classes.title}>MEESTE PENIKOORMASAAPAD</div>
-      <div className={classes.description}>Soojad saapad, läigivad hästi!</div>
-      <label className={classes.dropdown} htmlFor="size">Vali suurus:</label>
-      <select className={classes.value} name="size" id="size">
-        <option value="36">36</option>
-        <option value="38">38</option>
-        <option value="40">40</option>
-        <option value="43">43</option>
-      </select>
+        <div className={classes.description}>
+          Soojad saapad, läigivad hästi!
         </div>
-        <div className={classes.flexItem3}>
+        <label className={classes.dropdown} htmlFor="size">
+          Vali suurus:
+        </label>
+        <select className={classes.value} name="size" id="size">
+          <option value="36">36</option>
+          <option value="38">38</option>
+          <option value="40">40</option>
+          <option value="43">43</option>
+        </select>
+      </div>
+      <div className={classes.flexItem3}>
         <div className={classes.price}>132,12 €</div>
         <Button title="Lisa korvi" pageLink="/login"></Button>
-        </div>
-
+      </div>
     </div>
   );
 };

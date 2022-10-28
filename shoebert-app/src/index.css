@@ -2,6 +2,10 @@ body,
 html {
   margin: 0;
   font-family: "JetBrains Mono", monospace;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+.gap {
+  opacity: 0%;
+  height: 5;
+  padding: 5;
 }

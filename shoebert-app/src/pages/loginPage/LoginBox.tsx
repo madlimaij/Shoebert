@@ -2,7 +2,7 @@ import { wrap } from "module";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
-import theme from "../theme";
+import theme from "../../theme";
 
 const useStyles = createUseStyles({
   container: {
@@ -47,7 +47,7 @@ const useStyles = createUseStyles({
   },
 
   button: {
-    backgroundColor: "#dedede"/*vaja lisada theme lightgray)*/,
+    backgroundColor: "#dedede" /*vaja lisada theme lightgray)*/,
     cursor: "pointer",
     color: theme.colors.black,
     border: "none",
@@ -57,10 +57,10 @@ const useStyles = createUseStyles({
     fontFamily: theme.font.fontFamily,
     padding: theme.spacing.s,
     transition: "background .2s ease-in-out",
-      "&:hover": {
-        background: theme.colors.gray,
-
-  }},
+    "&:hover": {
+      background: theme.colors.gray,
+    },
+  },
 });
 
 const LoginBox = () => {
@@ -89,8 +89,8 @@ const LoginBox = () => {
       >
         Unustasid parooli?
       </a>
-      <a href="/dashboard"> 
-      <button className={classes.button}>Logi sisse</button>
+      <a href="/dashboard">
+        <button className={classes.button}>Logi sisse</button>
       </a>
       <div className={classes.containerText}>
         Pole kontot?{" "}
@@ -101,7 +101,6 @@ const LoginBox = () => {
     </div>
   );
 };
-
 
 //kogu container keskele ja vasakule? Kuidas teha
 

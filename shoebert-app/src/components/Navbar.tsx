@@ -10,19 +10,22 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     padding: 40,
   },
-  },
-);
+});
 
 const Navbar: React.FC = () => {
   const classes = useStyles();
   return (
     <div>
       <div className={classes.navWhite}>
-      <a href={"/"}><img src={NavigationPng} alt="NavigationPng" /></a>
+        <a href={"/"}>
+          <img src={NavigationPng} alt="NavigationPng" />
+        </a>
+      </div>
+      <div className="space">
+        <p></p>
       </div>
     </div>
   );
 };
-
 
 export default Navbar;
