@@ -7,42 +7,78 @@ import Saabas from "../images/Saabas.png";
 const useStyles = createUseStyles({
   container: {
     border: [1, "solid", theme.colors.black],
-    padding: [10, 500, 10, 30],
-    margin: 10,
-    //position: "relative",
+    // padding: [10, 500, 10, 30],
+    //margin: 10,
+    position: "relative",
     display: "flex",
-    flexDirection: "column",
-    justifyContent: "left",
-
-    gap: 15,
+    flexDirection: "row",
+    justifyContent: "space-evenly"
   },
 
   title: {
-    //color: theme.colors.black,
-    //fontSize: theme.typography.h4,
-    //fontFamily: theme.font.fontFamily
+    color: theme.colors.black,
+    fontSize: theme.typography.h4,
+    fontFamily: theme.font.fontFamily,
+    justifyContent: "left",
+    alignItems: "left"
   },
 
   price: {
-    //color: theme.colors.black,
-    //fontSize: theme.typography.h3,
+    color: theme.colors.black,
+    fontSize: theme.typography.h3,
+    alignItems: "left"
   },
 
   description: {
-    /* position: "relative",
-      width: 450,
-      height: 40,
-      margin: 5,
-      maxWidth: "100%",
-      background: theme.colors.lightLightPink,
-      //*padding: theme.spacing.s,
-      border: [1, "dashed", theme.colors.pink],
-      text: theme.typography.h4,
-      fontFamily: theme.font.fontFamily */
+    color: theme.colors.black,
+    fontSize: theme.typography.body,
+    fontFamily: theme.font.fontFamily,
+    justifyContent: "left",
+    alignItems: "left"
   },
+
   img: {
-    /* color: theme.colors.black,
-        fontSize: theme.typography.h2 */
+    width: 200,
+    height: 200,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+
+  dropdown: {
+    color: theme.colors.black,
+    fontSize: theme.typography.body,
+    fontFamily: theme.font.fontFamily,
+    
+  },
+
+  value: {
+    color: theme.colors.black,
+    fontSize: theme.typography.body,
+    fontFamily: theme.font.fontFamily,
+    width: 55,
+    height: 40,
+    margin: 25,
+    border: [1, "solid", theme.colors.gray],
+    background: theme.colors.white,
+  },
+
+  flexItem1: {
+    //width: 300,
+    //height: 300,
+    background: theme.colors.gray,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+
+  flexItem2: {
+    padding: theme.spacing.xl,
+    background: theme.colors.lightGray,
+  },
+
+  flexItem3: {
+    alignItems: "right",
+    padding: theme.spacing.xl,
+    background: theme.colors.gray
   },
 });
 
@@ -51,20 +87,27 @@ const ListCard = () => {
 
   return (
     <div className={classes.container}>
-      <div className={classes.title}>MEESTE PENIKOORMASAAPAD</div>
-      <div className={classes.description}>Soojad saapad, läigivad hästi!</div>
-      <div className={classes.img}>
+        <div className={classes.flexItem1}>
+        <div className={classes.img}>
         <img src={Saabas} alt="Saabas" />
       </div>
-      <div className={classes.price}>132,12 €</div>
-      <label htmlFor="size">Vali suurus</label>
-      <select name="size" id="size">
+        </div>
+        <div className={classes.flexItem2}>
+        <div className={classes.title}>MEESTE PENIKOORMASAAPAD</div>
+      <div className={classes.description}>Soojad saapad, läigivad hästi!</div>
+      <label className={classes.dropdown} htmlFor="size">Vali suurus:</label>
+      <select className={classes.value} name="size" id="size">
         <option value="36">36</option>
         <option value="38">38</option>
         <option value="40">40</option>
         <option value="43">43</option>
       </select>
-      <Button title="Lisa korvi" pageLink="/login"></Button>
+        </div>
+        <div className={classes.flexItem3}>
+        <div className={classes.price}>132,12 €</div>
+        <Button title="Lisa korvi" pageLink="/login"></Button>
+        </div>
+
     </div>
   );
 };

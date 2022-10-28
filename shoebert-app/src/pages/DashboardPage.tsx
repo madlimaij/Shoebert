@@ -26,13 +26,11 @@ const useStyles = createUseStyles({
     fontSize: theme.typography.h4,
     fontFamily: theme.font.fontFamily */
   },
-  /* cart: {
-  display: "flex",
+  cart: {
+    display: "flex",
     flexDirection: "column",
     border: [1, theme.colors.black],
-    /* color: theme.colors.black,
-    fontSize: theme.typography.h4,
-    fontFamily: theme.font.fontFamily 
+    color: theme.colors.black,
   },
 
  */

@@ -9,6 +9,7 @@ const theme = {
     lightBrown: "#DEC4B2",
     lightLightPink: "#FFF0F0",
     white: "#FFFFFF",
+    lightGray: "#DEDEDE"
   },
 
   spacing: {
@@ -28,7 +29,6 @@ typography: {
     h1: 70, 
     h2: 32,
     h3: 24, 
-    placeholder: 24, 
     h4: 20, 
     body: 16, 
     button: 16,
