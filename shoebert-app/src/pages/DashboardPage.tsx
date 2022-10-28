@@ -7,6 +7,7 @@ import theme from "../theme";
 import PinkDiv from "../components/PinkDiv";
 import LogoComp from "../components/LogoComp";
 import LogoTrans from "../images/Logo_trans_png.png";
+import Button from "../components/Button";
 
 const useStyles = createUseStyles({
   container: {
@@ -59,6 +60,9 @@ const DashboardPage = () => {
         <div className={classes.cart}>
           <Cart />
         </div>
+        <a href="/">
+          <Button title={"Logi välja"} />
+        </a>
         <Footer />
       </div>
     </div>

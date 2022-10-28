@@ -6,6 +6,7 @@ import PinkDiv from "../components/PinkDiv";
 import RegisterBox from "../components/RegisterBox";
 import theme from "../theme";
 import LogoTrans from "../images/Logo_trans_png.png";
+import Button from "../components/Button";
 
 const useStyles = createUseStyles({
   pinkDiv: {
@@ -23,6 +24,9 @@ const RegisterPage = () => {
       <LogoComp logosource={LogoTrans} />
       <PinkDiv cname={classes.pinkDiv} />
       <RegisterBox />
+      <a href="/login">
+          <Button title={"Logi sisse"} />
+        </a>
       <Footer />
     </div>
   );

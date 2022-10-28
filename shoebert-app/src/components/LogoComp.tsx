@@ -22,12 +22,12 @@ const LogoComp: React.FC<LogoCompProps> = (props) => {
   const classes = useStyles();
   return (
     <div>
-      <img
+      <a href={"/"}><img
         src={props.logosource}
         alt="Niperbond"
         className={classes.logo}
         //z-index toob kõige ette
-      />
+      /></a>
     </div>
   );
 };
