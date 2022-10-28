@@ -15,7 +15,6 @@ const useStyles = createUseStyles({
     flexDirection: "row",
     alignContent: "space-between",
     gap: 15,
-    //top: 200,
     margin: 50,
   },
   listCard: {
