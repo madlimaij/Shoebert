@@ -14,9 +14,27 @@ const useStyles = createUseStyles({
   logoPlaceholder: {
     //Võiks asendada buttoni laiusega, et brändinimi tuleks täpselt keskele?
     width: 227,
+    minWith: 227,/*Kuidas lahendada see, et poenimi ei kaoks logo taha? */
     top: 10,
     left: 15,
   },
+  button: {
+    backgroundColor: theme.colors.white,
+    cursor: "pointer",
+    color: theme.colors.black,
+    border: [1, "solid", theme.colors.black],
+    width: 128,
+    marginLeft: 99,
+    maxWidth: "100%",
+    fontSize: theme.typography.button,
+    fontFamily: theme.font.fontFamily,
+    padding: theme.spacing.s,
+    transition: "background .2s ease-in-out",
+      "&:hover": {
+        borderColor: theme.colors.pink,
+        color: theme.colors.pink,
+  }},
+
 });
 
 const Navbar: React.FC = () => {
@@ -26,7 +44,9 @@ const Navbar: React.FC = () => {
       <div className={classes.navWhite}>
         <div className={classes.logoPlaceholder}></div>
         <img src={NavigationPng} alt="NavigationPng" />
-        <Button title="Logi sisse" pageLink="/Login"></Button>
+      <a href="/login"> 
+      <button className={classes.button}>Logi sisse</button>
+      </a>
       </div>
     </div>
   );

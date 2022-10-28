@@ -3,7 +3,6 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 import theme from "../theme";
-import Button from "./Button";
 
 const useStyles = createUseStyles({
   container: {
@@ -20,7 +19,6 @@ const useStyles = createUseStyles({
   inputBox: {
     position: "relative",
     width: 450,
-    Height: 40,
     margin: 5,
     maxWidth: "100%",
     color: theme.colors.black,
@@ -47,6 +45,22 @@ const useStyles = createUseStyles({
     fontSize: theme.typography.h4,
     color: theme.colors.black,
   },
+
+  button: {
+    backgroundColor: "#dedede"/*vaja lisada theme lightgray)*/,
+    cursor: "pointer",
+    color: theme.colors.black,
+    border: "none",
+    width: 470,
+    maxWidth: "100%",
+    fontSize: theme.typography.h4,
+    fontFamily: theme.font.fontFamily,
+    padding: theme.spacing.s,
+    transition: "background .2s ease-in-out",
+      "&:hover": {
+        background: theme.colors.gray,
+
+  }},
 });
 
 const LoginBox = () => {
@@ -75,7 +89,9 @@ const LoginBox = () => {
       >
         Unustasid parooli?
       </a>
-      <Button title="Logi sisse" pageLink="/dashboard"></Button>
+      <a href="/dashboard"> 
+      <button className={classes.button}>Logi sisse</button>
+      </a>
       <div className={classes.containerText}>
         Pole kontot?{" "}
         <a href="/register" className={classes.link}>
@@ -86,7 +102,7 @@ const LoginBox = () => {
   );
 };
 
-//Todo Buttoni pagelink vale! Button vaja siin sees ümber kujundada?
+
 //kogu container keskele ja vasakule? Kuidas teha
 
 export default LoginBox;
