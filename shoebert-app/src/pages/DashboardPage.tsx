@@ -11,11 +11,9 @@ import Button from "../components/Button";
 
 const useStyles = createUseStyles({
   container: {
-    // position: "relative",
     display: "flex",
     flexDirection: "row",
-    /*   justifyContent: "center",
-    alignItems: "center", */
+    alignContent: "space-between",
     gap: 15,
     //top: 200,
     margin: 50,
@@ -23,17 +21,19 @@ const useStyles = createUseStyles({
   listCard: {
     display: "flex",
     flexDirection: "column",
+    flexGrow: "2",
+    width: "100%"
     /* color: theme.colors.black,
     fontSize: theme.typography.h4,
     fontFamily: theme.font.fontFamily */
   },
   cart: {
     display: "flex",
-    flexDirection: "column",
     border: [1, theme.colors.black],
-    color: theme.colors.black,
+    /*color: theme.colors.black,*/
+    flexGrow: "1",
+    height: "100%"
   },
-
 
   pinkDiv: {
     backgroundColor: theme.colors.lightPink,
@@ -53,11 +53,11 @@ const DashboardPage = () => {
       <PinkDiv cname={classes.pinkDiv} adtext={adText} />
       <div className={classes.container}>
         <div className={classes.listCard}>
-          <ListCard />
-          <ListCard />
-          <ListCard />
+          <ListCard /> <br />
+          <ListCard /> <br />
+          <ListCard /> <br />
         </div>
-        <div /* className={classes.cart} */>
+        <div className={classes.cart}>
           <Cart />
         </div>
         <a href="/">
