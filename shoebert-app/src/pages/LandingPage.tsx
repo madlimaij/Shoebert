@@ -7,6 +7,8 @@ import MainFooter from "../components/MainFooter";
 import PinkDiv from "../components/PinkDiv";
 import theme from "../theme";
 import LogoWhite from "../images/Logo_white_png.png";
+import Button from "../components/Button";
+import { useHref } from "react-router-dom";
 
 const useStyles = createUseStyles({
   pinkDiv: {
@@ -27,6 +29,9 @@ const LandingPage = () => {
       <PinkDiv cname={classes.pinkDiv} adtext={adText} />
       <LandingBody />
       <MainFooter />
+        <a href="/login">
+          <Button title={"Logi sisse"} />
+        </a>
     </div>
   );
 };

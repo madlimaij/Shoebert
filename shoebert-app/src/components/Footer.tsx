@@ -11,7 +11,7 @@ const useStyles = createUseStyles ({
     position: "fixed",
     display: "flex",    
     justifyContent: "center",
-    height: 102,
+    height: 70,
     bottom: 0,
     width: "100%",
     backgroundColor: theme.colors.lightBrown,
@@ -27,8 +27,6 @@ const useStyles = createUseStyles ({
         textAlign: "center",
         display: "flex",
         alignItems: "center",
-        
-
 
     }
 }
@@ -39,7 +37,7 @@ const Footer =() => {
     return (
         
         <div className={classes.footer}>
-        <span className={classes.title}>Selle nägusa saapapoe lõid sulle: Madli, Merje, Hanna ja Liisi</span>
+        <div className={classes.title}>&copy; Copyright by Madli, Merje, Hanna ja Liisi</div>
     </div>)
 }
 

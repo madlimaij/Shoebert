@@ -15,7 +15,17 @@ const useStyles = createUseStyles({
     height: 60,
     width: 250,
     fontSize: theme.spacing.xl,
+    cursor: "pointer",
+    opacity: "70%",
+    fontWeight: "bold",
+    fontFamily: theme.font.fontFamily,
+    transition: "background .2s ease-in-out",
+    "&:hover": {
+      color: theme.colors.pink,
+      opacity: "100%",
+    },
   },
+
   slogan: {
     backgroundColor: "white",
     fontSize: 24,
@@ -27,6 +37,7 @@ const useStyles = createUseStyles({
     left: 200,
     border: 1,
     borderColor: theme.colors.black,
+    opacity: "70%",
   },
 });
 
@@ -51,7 +62,9 @@ const LandingBody: React.FC = () => {
         Mehised saapad. Poriloikudes keksimiseks.
         {/* @Todo: Tekst muudetavaks? Tekst vahetub koos pildiga? */}
       </div>
-      <button className={classes.buttonGoShop}>MINE POODI</button>
+      <a href="/login">
+        <button className={classes.buttonGoShop}>MINE POODI</button>
+      </a>
     </div>
   );
 };
