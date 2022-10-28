@@ -1,13 +1,13 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-
-import LandingBody from "./LandingBody";
-import LogoComp from "../../components/LogoComp";
-import MainFooter from "../../components/MainFooter";
-import PinkDiv from "../../components/PinkDiv";
-import theme from "../../theme";
-import LogoWhite from "../../images/Logo_white_png.png";
-
+import LandingBody from "../components/LandingBody";
+import LogoComp from "../components/LogoComp";
+import MainFooter from "../components/MainFooter";
+import PinkDiv from "../components/PinkDiv";
+import theme from "../theme";
+import LogoWhite from "../images/Logo_white_png.png";
+import Button from "../components/Button";
+import { useHref } from "react-router-dom";
 const useStyles = createUseStyles({
   pinkDiv: {
     backgroundColor: theme.colors.pink,
@@ -17,7 +17,6 @@ const useStyles = createUseStyles({
     fontSize: theme.spacing.l,
   },
 });
-
 const LandingPage = () => {
   const classes = useStyles();
   const adText = "Seitsmepenikoormasaapad -70%"; //@Todo tee muutuja admin page'i kaudu muudetavaks.
@@ -26,9 +25,11 @@ const LandingPage = () => {
       <LogoComp logosource={LogoWhite} />
       <PinkDiv cname={classes.pinkDiv} adtext={adText} />
       <LandingBody />
-      {/*       <MainFooter /> */}
+      <MainFooter />
+      <a href="/login">
+        <Button title={"Logi sisse"} />
+      </a>
     </div>
   );
 };
-
 export default LandingPage;

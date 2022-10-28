@@ -22,7 +22,7 @@ const LogoComp: React.FC<LogoCompProps> = (props) => {
   const classes = useStyles();
   return (
     <div>
-      <a href="/">
+      <a href={"/"}>
         <img
           src={props.logosource}
           alt="Niperbond"

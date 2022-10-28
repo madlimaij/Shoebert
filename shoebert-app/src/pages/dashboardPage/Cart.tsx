@@ -7,125 +7,74 @@ import Remove_icon from "../../images/Remove_icon.png";
 
 const useStyles = createUseStyles({
   container: {
-    position: "fixed",
-    padding: [10, 20, 100, 20],
-    right: 30,
-    color: theme.colors.pink,
+    display: "flex",
     border: [1, "solid", theme.colors.black],
-    //float: "left",
-    width: "20%",
   },
 
   flexContainer1: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 20,
   },
 
   flexContainer2: {
     display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    flexDirection: "row",
     justifyContent: "flex-end",
+    padding: 20,
   },
 
   flexItem1: {
-    width: 150,
-    height: 100,
-    /*  marginRight: 20,
-    marginBottom:20, */
-    //padding: 20,
-    //backgroundColor: "lightgrey",
+    flexGrow: "0",
   },
 
   flexItem2: {
-    width: 150,
-    height: 100,
-    /*  marginRight: 20,
-    marginLeft:20,  */
+    flexGrow: "1",
     padding: 10,
-    //backgroundColor: "lightblue",
   },
 
   flexItem3: {
-    width: 30,
-    height: 100,
-    /* marginRight: 20,
-    marginLeft:20,  */
+    flexGrow: "0",
     padding: 20,
-    //backgroundColor: "grey",
-    //justifyContent: "spaceEvenly",
-    aligneItems: "center",
   },
 
   flexItem4: {
-    width: "80%",
-    height: 20,
-    /* marginRight: 20,
-    marginBottom:20, */
+    background: theme.colors.lightGray,
+    //backgroundColor: "grey",
     padding: 20,
-    backgroundColor: "grey",
   },
 
   flexItem5: {
-    width: "80%",
-    height: 20,
+    background: theme.colors.gray,
     /* marginRight: 20,
     marginBottom:20, */
     padding: 20,
-    backgroundColor: "lightGrey",
   },
 
   title: {
     color: theme.colors.black,
-    fontSize: theme.typography.h3,
+    fontSize: theme.typography.h2,
     fontFamily: theme.font.fontFamily,
-    top: 24,
-    right: 157,
+    padding: [0, 20, 0],
   },
 
-  /*  price1: {
-    color: theme.colors.black,
-    // fontSize: theme.typography.h3,
-    textAlign: "center",
-    alignContent:"center",
-    
-  },
- */
   price: {
     color: theme.colors.black,
-    // fontSize: theme.typography.h3,
-    textAlign: "right",
-    alignContent: "center",
+    fontWeight: "bold",
   },
 
   description: {
-    position: "relative",
-    width: "100%",
-    height: 40,
-    margin: 5,
-    //maxWidth: "100%",
-    alingItems: "center",
-    //textAlign: "center",
-    //padding: theme.spacing.s,
     text: theme.typography.body,
     fontFamily: theme.font.fontFamily,
     color: theme.colors.black,
-    display: "inlineBlock",
-    horisonatlAlign: "center",
   },
-  img: {
-    /*   textAlign: "left",
-        alingItems: "center", */
-    hight: "50%",
-    width: "50%",
-    /*display: "inlineBlock",
-     horisonatlAlign: "center", */
-  },
+  img: {},
 
-  removeIcon: {
-    //textAlign: "center",
-  },
+  img: {},
+
+  removeIcon: {},
 });
 
 const Cart: React.FC = () => {
@@ -159,17 +108,15 @@ const Cart: React.FC = () => {
               </div>
             </div>
           </div>
-          {/* <div>Size</div> */}
           <div className={classes.flexContainer2}>
             <div className={classes.flexItem4}>
-              <div>Summa:</div>
+              <div className={classes.sum}>Summa:</div>
+            </div>
+            <div className={classes.flexItem5}>
               <div className={classes.price}>132,12 €</div>
             </div>
-            <div></div>
-            <div className={classes.flexItem5}>
-              <Button title="Maksma" pageLink="/login"></Button>
-            </div>
           </div>
+          <Button title="Maksma" pageLink="/login"></Button>
         </div>
       </div>
     </div>

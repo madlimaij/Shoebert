@@ -7,47 +7,44 @@ import Saabas from "../../images/Saabas.png";
 const useStyles = createUseStyles({
   container: {
     border: [1, "solid", theme.colors.black],
-    // padding: [10, 500, 10, 30],
-    //margin: 10,
-    position: "relative",
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
+    alignContent: "left",
   },
 
   title: {
     color: theme.colors.black,
     fontSize: theme.typography.h4,
     fontFamily: theme.font.fontFamily,
-    justifyContent: "left",
-    alignItems: "left",
+    margin: 20,
   },
 
   price: {
     color: theme.colors.black,
     fontSize: theme.typography.h3,
     alignItems: "left",
+    margin: 20,
   },
 
   description: {
     color: theme.colors.black,
     fontSize: theme.typography.body,
     fontFamily: theme.font.fontFamily,
-    justifyContent: "left",
-    alignItems: "left",
+    margin: 20,
   },
 
   img: {
-    width: 200,
-    height: 200,
     justifyContent: "center",
     alignItems: "center",
+    padding: 20,
   },
 
   dropdown: {
     color: theme.colors.black,
     fontSize: theme.typography.body,
     fontFamily: theme.font.fontFamily,
+    margin: 20,
   },
 
   value: {
@@ -65,18 +62,15 @@ const useStyles = createUseStyles({
     //width: 300,
     //height: 300,
     background: theme.colors.gray,
-    alignItems: "center",
-    justifyContent: "center",
   },
 
   flexItem2: {
-    padding: theme.spacing.xl,
+    padding: 20,
     background: theme.colors.lightGray,
   },
 
   flexItem3: {
-    alignItems: "right",
-    padding: theme.spacing.xl,
+    padding: 20,
     background: theme.colors.gray,
   },
 });
