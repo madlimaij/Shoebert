@@ -1,6 +1,6 @@
-
 import React from "react";
 import { createUseStyles } from "react-jss";
+import { PinkDiv } from "../../components";
 import RailBoots from "../../images/RailBoots.jpg";
 import theme from "../../theme";
 
@@ -44,6 +44,13 @@ const useStyles = createUseStyles({
     borderColor: theme.colors.black,
     opacity: "70%",
   },
+  pinkDiv: {
+    backgroundColor: theme.colors.pink,
+    textAlign: "center",
+    heigth: "79px",
+    padding: 25,
+    fontSize: theme.spacing.l,
+  },
 });
 
 const LandingBody: React.FC = () => {
@@ -51,6 +58,8 @@ const LandingBody: React.FC = () => {
   const classes = useStyles();
   return (
     <div className={classes.container}>
+      <br />
+      <PinkDiv cname={classes.pinkDiv} adtext={adText} />
       <div className={classes.slogan}>
         Mehised saapad. Poriloikudes keksimiseks.
         {/* @Todo: Tekst muudetavaks? Tekst vahetub koos pildiga? */}

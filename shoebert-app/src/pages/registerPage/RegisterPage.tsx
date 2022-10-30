@@ -13,6 +13,7 @@ const useStyles = createUseStyles({
     fontSize: theme.spacing.l,
   },
 });
+
 const RegisterPage = () => {
   const classes = useStyles();
   return (
@@ -23,6 +24,7 @@ const RegisterPage = () => {
       <a href="/login">
         <Button title={"Logi sisse"} />
       </a>
+      <Footer />
     </div>
   );
 };

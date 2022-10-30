@@ -59,6 +59,7 @@ const DashboardPage = () => {
           <Button title={"Logi välja"} />
         </a>
       </div>
+      <Footer />
     </div>
   );
 };

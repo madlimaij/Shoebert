@@ -24,6 +24,7 @@ const LoginPage = () => {
       <LogoComp logosource={LogoTrans} />
       <PinkDiv cname={classes.pinkDiv} />
       <LoginBox />,
+      <Footer />
     </div>
   );
 };

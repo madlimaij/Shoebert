@@ -9,7 +9,7 @@ const useStyles = createUseStyles({
     display: "flex",
     gap: 15,
     //Hiljem margin asendada top: 305,??
-    margin: 100,
+    margin: 150,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
