@@ -13,7 +13,7 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     gap: 15,
-    margin: 100,
+    margin: 150,
   },
 
   title: {

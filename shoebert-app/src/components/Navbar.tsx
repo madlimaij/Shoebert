@@ -8,7 +8,7 @@ const useStyles = createUseStyles({
     backgroundColor: "white",
     display: "flex",
     justifyContent: "center",
-    padding: 40,
+    padding: 30,
   },
 });
 
@@ -20,9 +20,6 @@ const Navbar: React.FC = () => {
         <a href={"/"}>
           <img src={NavigationPng} alt="NavigationPng" />
         </a>
-      </div>
-      <div className="space">
-        <p></p>
       </div>
     </div>
   );

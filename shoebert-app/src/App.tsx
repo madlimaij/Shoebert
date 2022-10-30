@@ -16,7 +16,6 @@ const App: React.FC = () => {
               <Route path={el.path} element={<el.component />} key={el.path} />
             ))}
           </Routes>
-          <Footer />
         </BrowserRouter>
       </div>
     </>
