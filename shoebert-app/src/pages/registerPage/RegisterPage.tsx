@@ -1,12 +1,10 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import Footer from "../components/Footer";
-import LogoComp from "../components/LogoComp";
-import PinkDiv from "../components/PinkDiv";
-import RegisterBox from "../components/RegisterBox";
-import theme from "../theme";
-import LogoTrans from "../images/Logo_trans_png.png";
-import Button from "../components/Button";
+import { LogoComp, PinkDiv, Button, Footer } from "../../components";
+import theme from "../../theme";
+import LogoTrans from "../../images/Logo_trans_png.png";
+import RegisterBox from "./RegisterBox";
+
 const useStyles = createUseStyles({
   pinkDiv: {
     backgroundColor: theme.colors.lightPink,
@@ -25,7 +23,6 @@ const RegisterPage = () => {
       <a href="/login">
         <Button title={"Logi sisse"} />
       </a>
-      <Footer />
     </div>
   );
 };

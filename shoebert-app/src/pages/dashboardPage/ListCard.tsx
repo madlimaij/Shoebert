@@ -102,7 +102,9 @@ const ListCard = () => {
       </div>
       <div className={classes.flexItem3}>
         <div className={classes.price}>132,12 €</div>
-        <Button title="Lisa korvi" pageLink="/login"></Button>
+        <a href="/login">
+          <Button title="Lisa korvi"></Button>
+        </a>
       </div>
     </div>
   );

@@ -72,8 +72,6 @@ const useStyles = createUseStyles({
   },
   img: {},
 
-  img: {},
-
   removeIcon: {},
 });
 
@@ -110,13 +108,15 @@ const Cart: React.FC = () => {
           </div>
           <div className={classes.flexContainer2}>
             <div className={classes.flexItem4}>
-              <div className={classes.sum}>Summa:</div>
+              <div /*className= {classes.sum} */>Summa:</div>
             </div>
             <div className={classes.flexItem5}>
               <div className={classes.price}>132,12 €</div>
             </div>
           </div>
-          <Button title="Maksma" pageLink="/login"></Button>
+          <a href="/login">
+            <Button title="Lisa korvi"></Button>
+          </a>
         </div>
       </div>
     </div>
