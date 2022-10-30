@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "../../components/Button";
 import { createUseStyles } from "react-jss";
 import theme from "../../theme";
 import Saabas from "../../images/Saabas.png";
@@ -73,6 +72,23 @@ const useStyles = createUseStyles({
     padding: 20,
     background: theme.colors.gray,
   },
+
+  buttonAddToCart: {
+    backgroundColor: theme.colors.white,
+    cursor: "pointer",
+    color: theme.colors.black,
+    border: [1, "solid", theme.colors.black],
+    width: 128,
+    maxWidth: "100%",
+    fontSize: theme.typography.button,
+    fontFamily: theme.font.fontFamily,
+    padding: theme.spacing.s,
+    transition: "background .2s ease-in-out",
+    "&:hover": {
+      borderColor: theme.colors.pink,
+      color: theme.colors.pink,
+    },
+  },
 });
 
 const ListCard = () => {
@@ -101,14 +117,16 @@ const ListCard = () => {
         </select>
       </div>
       <div className={classes.flexItem3}>
-        <div className={classes.price}>132,12 €</div>
-        <a href="/login">
-          <Button title="Lisa korvi"></Button>
-        </a>
+        <div className={classes.price}>132,12 €</div> <br />
+        <button
+          className={classes.buttonAddToCart}
+          onClick={() => alert("Ei läinud korvi, kliki uuesti!")}
+        >
+          Lisa korvi
+        </button>
       </div>
     </div>
   );
 };
 
-//pilt, kujundus,kirjeldus, button -vali suurus
 export default ListCard;
