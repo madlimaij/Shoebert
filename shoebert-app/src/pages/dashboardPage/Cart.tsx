@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../components/Button";
+import Button from "../../components/NavButton";
 import { createUseStyles } from "react-jss";
 import theme from "../../theme";
 import Saabas from "../../images/Saabas.png";
@@ -73,6 +73,22 @@ const useStyles = createUseStyles({
   img: {},
 
   removeIcon: {},
+
+  buttonPay: {
+    cursor: "pointer",
+    color: theme.colors.black,
+    background: theme.colors.gray,
+    border: [1, "solid", theme.colors.black],
+    width: 140,
+    maxWidth: "100%",
+    fontSize: theme.typography.button,
+    fontFamily: theme.font.fontFamily,
+    padding: theme.spacing.s,
+    transition: "background .2s ease-in-out",
+    "&:hover": {
+      background: theme.colors.lightGray,
+    },
+  },
 });
 
 const Cart: React.FC = () => {
@@ -111,12 +127,17 @@ const Cart: React.FC = () => {
               <div /*className= {classes.sum} */>Summa:</div>
             </div>
             <div className={classes.flexItem5}>
-              <div className={classes.price}>132,12 €</div>
+              <div className={classes.price}>132,12 €</div> <br />
+              <button
+                className={classes.buttonPay}
+                onClick={() =>
+                  alert("Maksmine ainult sularahas, aadressil Aia 7")
+                }
+              >
+                Maksma
+              </button>
             </div>
           </div>
-          <a href="/login">
-            <Button title="Lisa korvi"></Button>
-          </a>
         </div>
       </div>
     </div>

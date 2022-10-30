@@ -46,7 +46,7 @@ const useStyles = createUseStyles({
   },
 
   button: {
-    backgroundColor: "#dedede" /*vaja lisada theme lightgray)*/,
+    backgroundColor: theme.colors.lightGray,
     cursor: "pointer",
     color: theme.colors.black,
     border: "none",
@@ -77,7 +77,7 @@ const LoginBox = () => {
         <br />
         <input
           type="text"
-          placeholder="Parool"
+          placeholder="Salasõna"
           className={classes.inputBox}
         />{" "}
         <br />
@@ -86,7 +86,7 @@ const LoginBox = () => {
         className={classes.link}
         onClick={() => alert("aga.. Proovi veel, äkki tuleb ikka meelde?")}
       >
-        Unustasid parooli?
+        Unustasid salasõna?
       </a>
       <a href="/dashboard">
         <button className={classes.button}>Logi sisse</button>

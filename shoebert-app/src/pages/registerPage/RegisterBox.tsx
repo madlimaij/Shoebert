@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../components/Button";
+import Button from "../../components/NavButton";
 import { createUseStyles } from "react-jss";
 import theme from "../../theme";
 import { findByLabelText } from "@testing-library/react";
@@ -58,10 +58,12 @@ const RegisterBox = () => {
     <div className={classes.container}>
       <div className={classes.title}>Registreeru kasutajaks:</div>
       <form>
+        <input className={classes.field} type="text" placeholder="Eesnimi" />{" "}
+        <br />
         <input
           className={classes.field}
           type="text"
-          placeholder="Ees- ja perekonnanimi"
+          placeholder="Perekonnanimi"
         />{" "}
         <br />
         <input
@@ -74,12 +76,6 @@ const RegisterBox = () => {
           className={classes.field}
           type="text"
           placeholder="Salasõna"
-        />{" "}
-        <br />
-        <input
-          className={classes.field}
-          type="text"
-          placeholder="Korda salasõna"
         />{" "}
         <br />
       </form>
