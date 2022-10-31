@@ -29,7 +29,7 @@ const Footer = () => {
   return (
     <div className={classes.footer}>
       <div className={classes.title}>
-        &copy; Copyright by Madli, Merje, Hanna ja Liisi
+        &copy; Copyright by Madli, Merje, Hanna, Liisi ja Kairit
       </div>
     </div>
   );

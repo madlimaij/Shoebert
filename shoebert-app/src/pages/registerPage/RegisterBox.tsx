@@ -4,6 +4,8 @@ import { createUseStyles } from "react-jss";
 import theme from "../../theme";
 import { findByLabelText } from "@testing-library/react";
 import { isWhiteSpaceSingleLine } from "typescript";
+import { useForm, FieldValues } from "react-hook-form";
+import { registerUser } from "../../api/controller/authController";
 
 const useStyles = createUseStyles({
   container: {
@@ -35,7 +37,7 @@ const useStyles = createUseStyles({
   },
 
   button: {
-    backgroundColor: "#dedede" /*vaja lisada theme)*/,
+    backgroundColor: theme.colors.lightGray,
     cursor: "pointer",
     color: theme.colors.black,
     border: "none",
@@ -51,37 +53,60 @@ const useStyles = createUseStyles({
   },
 });
 
-const RegisterBox = () => {
+const RegisterBox: React.FC = () => {
   const classes = useStyles();
+  const { handleSubmit, register } = useForm();
+
+  const onSubmit = async (formValues: FieldValues) => {
+    const newUser = {
+      email: formValues.email,
+      firstName: formValues.firstName,
+      lastName: formValues.lastName,
+      password: formValues.password,
+    }
+
+    const response = await registerUser(newUser);
+
+    console.log(response)
+
+  }
 
   return (
     <div className={classes.container}>
       <div className={classes.title}>Registreeru kasutajaks:</div>
-      <form>
-        <input className={classes.field} type="text" placeholder="Eesnimi" />{" "}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input 
+        className={classes.field} 
+        type="text" 
+        placeholder="Eesnimi"
+        {...register("firstName")}
+        />{" "}
         <br />
         <input
           className={classes.field}
           type="text"
           placeholder="Perekonnanimi"
+          {...register("lastName")}
         />{" "}
         <br />
         <input
           className={classes.field}
-          type="text"
+          type="email"
           placeholder="E-posti aadress"
+          {...register("email")}
         />{" "}
         <br />
         <input
           className={classes.field}
-          type="text"
+          type="password"
           placeholder="Salasõna"
+          {...register("password")}
         />{" "}
         <br />
-      </form>
-      <a href="/login">
+        <a href="/login">
         <button className={classes.button}>Registreeru</button>
       </a>
+      </form>
     </div>
   );
 };

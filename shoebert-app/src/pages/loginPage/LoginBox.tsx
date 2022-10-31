@@ -2,6 +2,7 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 import theme from "../../theme";
+import { useForm, FieldValues } from "react-hook-form";
 
 const useStyles = createUseStyles({
   container: {
@@ -62,35 +63,48 @@ const useStyles = createUseStyles({
   },
 });
 
-const LoginBox = () => {
+const LoginBox: React.FC = () => {
   const classes = useStyles();
+  const { handleSubmit, register } = useForm();
+  
+    const onSubmit = async (formValues: FieldValues) => {
+      console.log("result from onSubmit", formValues);
+    }
 
   return (
     <div className={classes.container}>
       <div className={classes.containerTitle}>Logi sisse:</div>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          type="text"
+          type="email"
           placeholder="E-posti aadress"
           className={classes.inputBox}
+          {...register("email")}
+
         />{" "}
         <br />
         <input
-          type="text"
+          type="password"
           placeholder="Salasõna"
           className={classes.inputBox}
+          {...register("password")}
         />{" "}
         <br />
-      </form>
-      <a
+        <br />
+        <a
         className={classes.link}
         onClick={() => alert("aga.. Proovi veel, äkki tuleb ikka meelde?")}
       >
         Unustasid salasõna?
+        <br />
+        <br />
       </a>
+    
       <a href="/dashboard">
         <button className={classes.button}>Logi sisse</button>
       </a>
+      </form>
+
       <div className={classes.containerText}>
         Pole kontot?{" "}
         <a href="/register" className={classes.link}>
@@ -102,5 +116,6 @@ const LoginBox = () => {
 };
 
 //kogu container keskele ja vasakule? Kuidas teha
+//To-do: lisa unustasid parooli ja logi sisse nupu vahele marginit ja paddingut 
 
 export default LoginBox;
