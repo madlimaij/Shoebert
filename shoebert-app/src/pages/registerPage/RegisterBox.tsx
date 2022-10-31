@@ -80,7 +80,7 @@ const RegisterBox = () => {
         <br />
       </form>
       <a href="/login">
-        <button className={classes.button}>Logi sisse</button>
+        <button className={classes.button}>Registreeru</button>
       </a>
     </div>
   );
