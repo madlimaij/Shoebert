@@ -3,6 +3,7 @@ import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 import theme from "../../theme";
 import { useForm, FieldValues } from "react-hook-form";
+import { loginUser } from "../../api/controller/loginController"
 
 const useStyles = createUseStyles({
   container: {
@@ -68,7 +69,15 @@ const LoginBox: React.FC = () => {
   const { handleSubmit, register } = useForm();
   
     const onSubmit = async (formValues: FieldValues) => {
-      console.log("result from onSubmit", formValues);
+      const loggedInUser = {
+        email: formValues.email,
+        password: formValues.password,
+      }
+  
+      const response = await loginUser(loggedInUser);
+  
+      console.log(response)
+  
     }
 
   return (
