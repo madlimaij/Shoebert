@@ -1,8 +1,17 @@
-const AUTH_ACCESS_TOKEN ="auth_token";
+const AUTH_ACCESS_TOKEN = "auth_token";
 export const setAuthToken = (token: string) => {
-if (token) {
+  if (token) {
     localStorage.setItem(AUTH_ACCESS_TOKEN, token);
-} else{
+  } else {
     throw new Error("token not provided!");
-}
-}
+  }
+};
+
+export const getAuthToken = () => {
+  return localStorage.getItem(AUTH_ACCESS_TOKEN);
+};
+
+export const getAuthorizationHeader = () => {
+  const authToken = getAuthToken();
+  return { Authorixation: `Bearer ${authToken}` };
+};

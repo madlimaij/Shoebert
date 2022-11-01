@@ -7,6 +7,7 @@ import { isWhiteSpaceSingleLine } from "typescript";
 import { useForm, FieldValues } from "react-hook-form";
 import { registerUser } from "../../api/controller/authController";
 import { setAuthToken } from "../../helpers/authHelpers";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = createUseStyles({
   container: {
@@ -58,6 +59,8 @@ const RegisterBox: React.FC = () => {
   const classes = useStyles();
   const { handleSubmit, register } = useForm();
 
+  const navigate = useNavigate();
+
   const onSubmit = async (formValues: FieldValues) => {
     const newUser = {
       email: formValues.email,
@@ -71,10 +74,10 @@ if (response.isSuccess === true) {
   const {accessToken} =response.body;
   if (accessToken) {
     setAuthToken(accessToken);
+    navigate ("/dashboard");
   }
 }
     //console.log(response)
-
   }
 
   return (

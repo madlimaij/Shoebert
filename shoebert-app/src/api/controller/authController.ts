@@ -1,3 +1,4 @@
+import { getAuthorizationHeader } from "../../helpers/authHelpers";
 import ApiPath from "../endpoint";
 import getPath from "../utils";
 
@@ -7,7 +8,6 @@ export async function registerUser(user: any): Promise<any> {
         body: JSON.stringify(user),
         headers: {
             "Content-Type": "application/json",
-            //"Authorixation":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlaW5rb3J0QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiZmZmaGZnIiwiaWF0IjoxNjY3MjIyMzkxLCJleHAiOjE2Njc…"
         },
     });
     if (response.status === 200) {
@@ -52,7 +52,7 @@ export async function getCurrentUser(): Promise<any> {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            //"Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlaW5rb3J0QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiZmZmaGZnIiwiaWF0IjoxNjY3MjIyMzkxLCJleHAiOjE2Njc…"
+            ...getAuthorizationHeader(),
         },
     });
     if (response.status === 200) {
@@ -66,4 +66,4 @@ export async function getCurrentUser(): Promise<any> {
     return {
         isSuccess: false,
     }
-}
+} 

@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import LogoTrans from "../../images/Logo_trans_png.png";
 import { Button, Footer, LogoComp, PinkDiv } from "../../components";
 import Cart from "./Cart";
 import ListCard from "./ListCard";
 import theme from "../../theme";
+import useEffectAsync from "../../theme/useEffectAsync";
+import { getCurrentUser } from "../../api/controller/authController";
+import { AuthUser } from "../../models/AuthUser";
 
 const useStyles = createUseStyles({
   container: {
@@ -39,13 +42,24 @@ const useStyles = createUseStyles({
     fontSize: theme.spacing.l,
   },
 });
+
 const DashboardPage = () => {
   const classes = useStyles();
-  const adText = "Tere tulemast, Kasutaja!"; //@Todo: muuda kasutaja dünaamiliseks.
+  const [currentUser, setCurrentUser] = useState<AuthUser | null>(null);
+
+  useEffectAsync(async () => {
+    const response = await getCurrentUser();
+    if (response.isSuccess === true) {
+      const { accessToken } = response.body;
+      setCurrentUser(response.body);
+    }
+  }, []);
+
+  const adText = `Tere tulemast, ${currentUser?.firstName} ${currentUser?.lastName}`; //@Todo: muuda kasutaja dünaamiliseks.
   return (
     <div>
       <LogoComp logosource={LogoTrans} />
-      <PinkDiv cname={classes.pinkDiv} adtext={adText} />
+      <PinkDiv cname={classes.pinkDiv} adtext={adText}/>
       <div className={classes.container}>
         <div className={classes.listCard}>
           <ListCard /> <br />
