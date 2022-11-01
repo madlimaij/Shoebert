@@ -4,6 +4,10 @@ const ApiPath = {
     Auth: {
         register: "/auth/register",
         login: "/auth/login"
+        currentUser: "/auth/current-user"
     }
 }
+
+
+
 export default ApiPath;
