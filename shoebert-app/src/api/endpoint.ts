@@ -2,7 +2,8 @@ export const BACKEND_BASE_PATH = "http://localhost:8000";
 
 const ApiPath = {
     Auth: {
-        register: "/auth/register"
+        register: "/auth/register",
+        login: "/auth/login"
     }
 }
 export default ApiPath;

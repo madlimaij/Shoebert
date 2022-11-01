@@ -1,13 +1,3 @@
-
-
-/* type User = {
-    id?: number;
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
-  }; */
-
 import ApiPath from "../endpoint";
 import getPath from "../utils";
 
@@ -30,4 +20,6 @@ export async function registerUser(user: any): Promise<any> {
     return {
         isSuccess: false,
     }
+
+ 
 }
