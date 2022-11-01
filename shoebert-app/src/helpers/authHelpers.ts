@@ -1,0 +1,8 @@
+const AUTH_ACCESS_TOKEN ="auth_token";
+export const setAuthToken = (token: string) => {
+if (token) {
+    localStorage.setItem(AUTH_ACCESS_TOKEN, token);
+} else{
+    throw new Error("token not provided!");
+}
+}

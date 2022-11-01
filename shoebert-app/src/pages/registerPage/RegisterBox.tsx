@@ -6,6 +6,7 @@ import { findByLabelText } from "@testing-library/react";
 import { isWhiteSpaceSingleLine } from "typescript";
 import { useForm, FieldValues } from "react-hook-form";
 import { registerUser } from "../../api/controller/authController";
+import { setAuthToken } from "../../helpers/authHelpers";
 
 const useStyles = createUseStyles({
   container: {
@@ -66,8 +67,13 @@ const RegisterBox: React.FC = () => {
     }
 
     const response = await registerUser(newUser);
-
-    console.log(response)
+if (response.isSuccess === true) {
+  const {accessToken} =response.body;
+  if (accessToken) {
+    setAuthToken(accessToken);
+  }
+}
+    //console.log(response)
 
   }
 
