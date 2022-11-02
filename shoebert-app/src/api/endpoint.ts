@@ -5,6 +5,10 @@ const ApiPath = {
         register: "/auth/register",
         login: "/auth/login",
         currentUser: "/auth/current-user"
+    },
+    Shop: {
+        products: "/products",
+        cartItem: "/cart-items"
     }
 }
 

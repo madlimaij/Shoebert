@@ -3,3 +3,4 @@ export type AuthUser={
     lastName: string,
     email: string,
 }
+
