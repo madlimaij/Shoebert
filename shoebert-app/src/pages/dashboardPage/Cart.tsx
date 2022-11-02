@@ -2,8 +2,8 @@ import React from "react";
 import Button from "../../components/NavButton";
 import { createUseStyles } from "react-jss";
 import theme from "../../theme";
-import Saabas from "../../images/Saabas.png";
-import Remove_icon from "../../images/Remove_icon.png";
+import CartItem from "./CartItem";
+import { CartItemType } from "../../models/Cart";
 
 const useStyles = createUseStyles({
   container: {
@@ -91,7 +91,11 @@ const useStyles = createUseStyles({
   },
 });
 
-const Cart: React.FC = () => {
+type CartProps = {
+  cartList: CartItemType[];
+};
+
+const Cart: React.FC<CartProps> = ({ cartList }) => {
   const classes = useStyles();
 
   return (
@@ -99,29 +103,11 @@ const Cart: React.FC = () => {
       <div>
         <h1 className={classes.title}>Ostukorv</h1>
         <div>
-          <div className={classes.flexContainer1}>
-            <div className={classes.flexItem1}>
-              <div className={classes.img}>
-                <img src={Saabas} alt="Saabas" />
-              </div>
-            </div>
-            <div className={classes.flexItem2}>
-              <div className={classes.description}>
-                Soojad saapad, läigivad hästi! Suurus 38 132,12 €
-              </div>
-              {/* <div className={classes.description}>
-            Suurus: 38
-          </div>
-          <div className={classes.price1}>
-          132,12 
-          </div> */}
-            </div>
-            <div className={classes.flexItem3}>
-              <div className={classes.removeIcon}>
-                <img src={Remove_icon} alt="Remove_icon" />
-              </div>
-            </div>
-          </div>
+          {" "}
+          {/* @Todo: siia mapime cartListi komponendi sisse */}
+          <CartItem name="1" price={22} size={33} imageUrl="" id={1} />
+          <CartItem name="1" price={22} size={33} imageUrl="" id={2} />
+          <CartItem name="1" price={22} size={33} imageUrl="" id={3} />
           <div className={classes.flexContainer2}>
             <div className={classes.flexItem4}>
               <div /*className= {classes.sum} */>Summa:</div>

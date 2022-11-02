@@ -1,5 +1,5 @@
 
-export type ProductList={
+export type Product={
     name: string,
     description: string,
     price: number,
