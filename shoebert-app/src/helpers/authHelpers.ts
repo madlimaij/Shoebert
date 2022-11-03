@@ -15,3 +15,7 @@ export const getAuthorizationHeader = () => {
   const authToken = getAuthToken();
   return { Authorization: `Bearer ${authToken}` };
 };
+
+export const removeAuthToken = () => {
+  return localStorage.removeItem(AUTH_ACCESS_TOKEN);
+}; 

@@ -10,9 +10,10 @@ import { getCurrentUser } from "../../api/controller/authController";
 import { AuthUser } from "../../models/AuthUser";
 import {
   addCartItem,
+  getCartItems,
   getProductList,
 } from "../../api/controller/shopController";
-import { setAuthToken } from "../../helpers/authHelpers";
+import { removeAuthToken, setAuthToken } from "../../helpers/authHelpers";
 import { Product } from "../../models/Product";
 import { CartItemType } from "../../models/Cart";
 
@@ -55,6 +56,10 @@ const DashboardPage = () => {
   const [currentUser, setCurrentUser] = useState<AuthUser | null>(null);
   const [productList, setProductList] = useState<Product[] | null>(null); //Teine pool on default state
   const [cartItemList, setCartItemList] = useState<CartItemType[]>([]);
+  const handleLogout = () => {
+    removeAuthToken();
+    window.location.reload(); //teeb refreshi lehele
+  };
 
   useEffectAsync(async () => {
     const response = await getCurrentUser();
@@ -69,6 +74,14 @@ const DashboardPage = () => {
       setProductList(response.body);
     }
   }, []);
+
+  useEffectAsync(async () => {
+    const response = await getCartItems();
+    if (response.isSuccess === true) {
+      setCartItemList(response.body);
+    }
+  }, []);
+
   const addToCart = async (product: Product) => {
     const cartItem = {
       name: product.name,
@@ -82,8 +95,7 @@ const DashboardPage = () => {
       setCartItemList([...cartItemList, response.body]);
     }
   };
-  console.log(cartItemList);
-  const adText = `Tere tulemast, ${currentUser?.firstName} ${currentUser?.lastName}`;
+  const adText = `Tere tulemast, ${currentUser?.firstName} ${currentUser?.lastName}!`;
   return (
     <div>
       <LogoComp logosource={LogoTrans} />
@@ -91,14 +103,14 @@ const DashboardPage = () => {
       <div className={classes.container}>
         <div className={classes.listCard}>
           {productList?.map((el) => (
-            <ListCard product={el} addToCart={addToCart} />
+            <ListCard product={el} addToCart={addToCart} key={el.id} />
           ))}
         </div>
         <div className={classes.cart}>
-          <Cart cartList={cartItemList} />
+          <Cart cartList={cartItemList}/>
         </div>
         <a href="/">
-          <Button title={"Logi välja"} />
+          <Button title={"Logi välja"} onClick={handleLogout}/>
         </a>
       </div>
       <Footer />

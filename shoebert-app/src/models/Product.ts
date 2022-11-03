@@ -5,4 +5,5 @@ export type Product={
     price: number,
     size: number,
     imageUrl: string,
+    id?: number,
 }
