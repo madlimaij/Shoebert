@@ -102,31 +102,34 @@ type ListCardProps = {
 const ListCard: React.FC<ListCardProps> = ({ product, addToCart }) => {
   const classes = useStyles();
   return (
-    <div className={classes.container}>
-      <div className={classes.flexItem1}>
-        <div className={classes.img}>
-          <img src={product.imageUrl} alt="Saabas" />
+    <div>
+      <div className={classes.container}>
+        <div className={classes.flexItem1}>
+          <div className={classes.img}>
+            <img src={product.imageUrl} alt="Saabas" />
+          </div>
+        </div>
+        <div className={classes.flexItem2}>
+          <div className={classes.title}>{product.name}</div>
+          <div className={classes.description}>{product.description}</div>
+          <label className={classes.dropdown} htmlFor="size">
+            Vali suurus:
+          </label>
+          <select className={classes.value} name="size" id="size">
+            <option value={product.size}>{product.size}</option>
+          </select>
+        </div>
+        <div className={classes.flexItem3}>
+          <div className={classes.price}>{product.price} €</div> <br />
+          <button
+            className={classes.buttonAddToCart}
+            onClick={() => addToCart(product)}
+          >
+            Lisa korvi
+          </button>
         </div>
       </div>
-      <div className={classes.flexItem2}>
-        <div className={classes.title}>{product.name}</div>
-        <div className={classes.description}>{product.description}</div>
-        <label className={classes.dropdown} htmlFor="size">
-          Vali suurus:
-        </label>
-        <select className={classes.value} name="size" id="size">
-          <option value={product.size}>{product.size}</option>
-        </select>
-      </div>
-      <div className={classes.flexItem3}>
-        <div className={classes.price}>{product.price}</div> <br />
-        <button
-          className={classes.buttonAddToCart}
-          onClick={() => addToCart(product)}
-        >
-          Lisa korvi
-        </button>
-      </div>
+      <br />
     </div>
   );
 };

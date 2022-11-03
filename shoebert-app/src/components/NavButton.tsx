@@ -30,12 +30,17 @@ const useStyles = createUseStyles({
 });
 
 type ButtonProps = {
-  title: string;
+  title: string,
+  onClick?: () => void,
 };
 
-const Button: React.FC<ButtonProps> = ({ title }) => {
+const Button: React.FC<ButtonProps> = ({ title, onClick }) => {
   const classes = useStyles();
-  return <button className={classes.button}>{title}</button>;
+  return (
+    <button className={classes.button} onClick={onClick}>
+      {title}
+    </button>
+  );
 };
 
 export default Button;

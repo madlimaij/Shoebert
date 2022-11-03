@@ -8,7 +8,8 @@ const ApiPath = {
     },
     Shop: {
         products: "/products",
-        cartItem: "/cart-items"
+        cartItem: "/cart-items",
+        
     }
 }
 

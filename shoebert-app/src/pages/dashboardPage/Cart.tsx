@@ -104,10 +104,9 @@ const Cart: React.FC<CartProps> = ({ cartList }) => {
         <h1 className={classes.title}>Ostukorv</h1>
         <div>
           {" "}
-          {/* @Todo: siia mapime cartListi komponendi sisse */}
-          <CartItem name="1" price={22} size={33} imageUrl="" id={1} />
-          <CartItem name="1" price={22} size={33} imageUrl="" id={2} />
-          <CartItem name="1" price={22} size={33} imageUrl="" id={3} />
+          {cartList?.map((el) => (
+            <CartItem product={el} key={el.id}/>
+          ))}
           <div className={classes.flexContainer2}>
             <div className={classes.flexItem4}>
               <div /*className= {classes.sum} */>Summa:</div>

@@ -4,6 +4,7 @@ import { createUseStyles } from "react-jss";
 import Saabas from "../../images/Saabas.png";
 import Remove_icon from "../../images/Remove_icon.png";
 import { CartItemType } from "../../models/Cart";
+import { deleteCartItem } from "../../api/controller/shopController";
 
 const useStyles = createUseStyles({
   flexContainer1: {
@@ -32,31 +33,46 @@ const useStyles = createUseStyles({
     fontFamily: theme.font.fontFamily,
     color: theme.colors.black,
   },
-  img: {},
+  img: {
+    "&>img": {
+      width: "70px",
+    },
+  },
 
   removeIcon: {},
 });
 
-const CartItem: React.FC<CartItemType> = (props) => {
+type CartItemProps = {
+  product: CartItemType;
+  /*   onClick: () => void, */
+};
+
+const CartItem: React.FC<CartItemProps> = ({ product /* , onClick */ }) => {
   const classes = useStyles();
+  const deleteItem = async () => {
+    const response = await deleteCartItem(product);
+    console.log(response);
+  };
   return (
     <div>
       <div className={classes.flexContainer1}>
         <div className={classes.flexItem1}>
           <div className={classes.img}>
-            <img src={props.imageUrl} alt="Saabas" />
+            <img src={product.imageUrl} alt="Saabas" />
           </div>
         </div>
         <div className={classes.flexItem2}>
           <div className={classes.description}>
-            <div>{props.name}</div>
-            <div>{`Suurus: ${props.size}`}</div>
-            <div>{`Hind: ${props.price}`}</div>
+            <div>{product.name}</div>
+            <div>{`Suurus: ${product.size}`}</div>
+            <div>{`Hind: ${product.price} €`}</div>
           </div>
         </div>
         <div className={classes.flexItem3}>
           <div className={classes.removeIcon}>
-            <img src={Remove_icon} alt="Remove_icon" />
+            <a href="">
+              <img src={Remove_icon} alt="Remove_icon" onClick={deleteItem} />
+            </a>
           </div>
         </div>
       </div>
