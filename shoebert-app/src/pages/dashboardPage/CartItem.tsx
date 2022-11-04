@@ -43,41 +43,47 @@ const useStyles = createUseStyles({
 });
 
 type CartItemProps = {
-	product: CartItemType;
-	/*   onClick: () => void, */
+
+  product: CartItemType;
 };
 
-const CartItem: React.FC<CartItemProps> = ({ product /* , onClick */ }) => {
-	const classes = useStyles();
-	const deleteItem = async () => {
-		const response = await deleteCartItem(product);
-		console.log(response);
-	};
-	return (
-		<div>
-			<div className={classes.flexContainer1}>
-				<div className={classes.flexItem1}>
-					<div className={classes.img}>
-						<img src={product.imageUrl} alt="Saabas" />
-					</div>
-				</div>
-				<div className={classes.flexItem2}>
-					<div className={classes.description}>
-						<div>{product.name}</div>
-						<div>{`Suurus: ${product.size}`}</div>
-						<div>{`Hind: ${product.price} €`}</div>
-					</div>
-				</div>
-				<div className={classes.flexItem3}>
-					<div className={classes.removeIcon}>
-						<a href="">
-							<img src={Remove_icon} alt="Remove_icon" onClick={deleteItem} />
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+const CartItem: React.FC<CartItemProps> = ({ product }) => {
+  const classes = useStyles();
+  const deleteItem = async () => {
+    const response = await deleteCartItem(product);
+    console.log(response);
+  };
+  return (
+    <div>
+      <div className={classes.flexContainer1}>
+        <div className={classes.flexItem1}>
+          <div className={classes.img}>
+            <img src={product.imageUrl} alt="Saabas" />
+          </div>
+        </div>
+        <div className={classes.flexItem2}>
+          <div className={classes.description}>
+            <div>{product.name}</div>
+            <div>{`Suurus: ${product.size}`}</div>
+            <div>{`Hind: ${product.price} €`}</div>
+          </div>
+        </div>
+        <div className={classes.flexItem3}>
+          <div className={classes.removeIcon}>
+            <a href="">
+              <img
+                src={Remove_icon}
+                alt="Remove_icon"
+                onClick={() => {
+                  deleteItem();
+                }}
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default CartItem;
