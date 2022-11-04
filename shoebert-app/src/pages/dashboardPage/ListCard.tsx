@@ -7,6 +7,7 @@ const useStyles = createUseStyles({
 	container: {
 		border: [1, "solid", theme.colors.black],
 		display: "flex",
+		maxHeight: 350,
 		flexDirection: "row",
 		justifyContent: "space-between",
 		alignContent: "left",
@@ -16,28 +17,28 @@ const useStyles = createUseStyles({
 		color: theme.colors.black,
 		fontSize: theme.typography.h2,
 		fontFamily: theme.font.fontFamily,
-		margin: 20,
+		margin: 10,
 	},
 
 	price: {
 		color: theme.colors.black,
-		fontSize: theme.typography.h3,
+		fontSize: theme.typography.h2,
 		alignItems: "left",
 		margin: 20,
 	},
 
 	description: {
 		color: theme.colors.black,
-		fontSize: theme.typography.h3,
+		fontSize: theme.typography.h4,
 		fontFamily: theme.font.fontFamily,
-		margin: 20,
+		margin: 10,
 	},
 
 	img: {
 		justifyContent: "center",
 		alignItems: "center",
 		fontSize: 20,
-		padding: 20,
+		padding: [40, 20, 20, 20],
 		"&>img": {
 			width: "400px",
 		},
@@ -66,18 +67,18 @@ const useStyles = createUseStyles({
 	flexItem1: {
 		//width: 300,
 		//height: 300,
-		background: theme.colors.gray,
+		//background: theme.colors.gray,
 	},
 
 	flexItem2: {
 		padding: 20,
-		background: theme.colors.lightGray,
+		//background: theme.colors.lightGray,
 		fontSize: theme.typography.h2,
 	},
 
 	flexItem3: {
 		padding: 20,
-		background: theme.colors.gray,
+		//background: theme.colors.gray,
 	},
 
 	buttonAddToCart: {
