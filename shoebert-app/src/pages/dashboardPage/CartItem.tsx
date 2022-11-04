@@ -44,10 +44,9 @@ const useStyles = createUseStyles({
 
 type CartItemProps = {
   product: CartItemType;
-  /*   onClick: () => void, */
 };
 
-const CartItem: React.FC<CartItemProps> = ({ product /* , onClick */ }) => {
+const CartItem: React.FC<CartItemProps> = ({ product }) => {
   const classes = useStyles();
   const deleteItem = async () => {
     const response = await deleteCartItem(product);
@@ -71,7 +70,13 @@ const CartItem: React.FC<CartItemProps> = ({ product /* , onClick */ }) => {
         <div className={classes.flexItem3}>
           <div className={classes.removeIcon}>
             <a href="">
-              <img src={Remove_icon} alt="Remove_icon" onClick={deleteItem} />
+              <img
+                src={Remove_icon}
+                alt="Remove_icon"
+                onClick={() => {
+                  deleteItem();
+                }}
+              />
             </a>
           </div>
         </div>

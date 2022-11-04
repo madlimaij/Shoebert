@@ -13,7 +13,7 @@ import {
   getCartItems,
   getProductList,
 } from "../../api/controller/shopController";
-import { removeAuthToken, setAuthToken } from "../../helpers/authHelpers";
+import { setAuthToken, removeAuthToken } from "../../helpers/authHelpers";
 import { Product } from "../../models/Product";
 import { CartItemType } from "../../models/Cart";
 
@@ -107,10 +107,10 @@ const DashboardPage = () => {
           ))}
         </div>
         <div className={classes.cart}>
-          <Cart cartList={cartItemList}/>
+          <Cart cartList={cartItemList} />
         </div>
         <a href="/">
-          <Button title={"Logi välja"} onClick={handleLogout}/>
+          <Button title={"Logi välja"} onClick={handleLogout} />
         </a>
       </div>
       <Footer />
