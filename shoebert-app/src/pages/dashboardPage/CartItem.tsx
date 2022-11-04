@@ -34,12 +34,17 @@ const useStyles = createUseStyles({
 		color: theme.colors.black,
 	},
 	img: {
+		padding: theme.spacing.s,
 		"&>img": {
 			width: "70px",
 		},
 	},
 
-	removeIcon: {},
+	removeButton: {
+		border: "none",
+		backgroundColor: theme.colors.white,
+		cursor: "pointer",
+	},
 });
 
 type CartItemProps = {
@@ -70,8 +75,8 @@ const CartItem: React.FC<CartItemProps> = ({ product, deleteItem }) => {
 					</div>
 				</div>
 				<div className={classes.flexItem3}>
-					<div className={classes.removeIcon}>
-						<button onClick={handleDeleteItem}>
+					<div /* className={classes.removeIcon} */>
+						<button className={classes.removeButton} onClick={handleDeleteItem}>
 							<img src={Remove_icon} alt="Remove_icon" />
 						</button>
 					</div>
