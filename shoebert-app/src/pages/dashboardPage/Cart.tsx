@@ -93,45 +93,45 @@ const useStyles = createUseStyles({
 
 type CartProps = {
 	cartList: CartItemType[];
+	deleteItem: (cartList: CartItemType) => Promise<void>;
 };
 
-const Cart: React.FC<CartProps> = ({ cartList }) => {
-
-  const classes = useStyles();
-  const totalSum = cartList.reduce((acc, cur) => acc + cur.price, 0);
-  return (
-    <div className={classes.container}>
-      <div>
-        <h1 className={classes.title}>Ostukorv</h1>
-        <div>
-          {cartList?.map((el) => (
-            <CartItem product={el} key={el.id} />
-          ))}
-          <div className={classes.flexContainer2}>
-            <div className={classes.flexItem4}>
-              <div /*className= {classes.sum} */>Summa:</div>
-            </div>
-            <div className={classes.flexItem5}>
-              {cartList.length === 0 ? (
-                <div className={classes.price}>Ostukorv on tühi</div>
-              ) : (
-                <div className={classes.price}>{totalSum} €</div>
-              )}
-              <br />
-              <button
-                className={classes.buttonPay}
-                onClick={() =>
-                  alert("Maksmine ainult sularahas, aadressil Aia 7")
-                }
-              >
-                Maksma
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+const Cart: React.FC<CartProps> = ({ cartList, deleteItem }) => {
+	const classes = useStyles();
+	const totalSum = cartList.reduce((acc, cur) => acc + cur.price, 0);
+	return (
+		<div className={classes.container}>
+			<div>
+				<h1 className={classes.title}>Ostukorv</h1>
+				<div>
+					{cartList?.map((el) => (
+						<CartItem deleteItem={deleteItem} product={el} key={el.id} />
+					))}
+					<div className={classes.flexContainer2}>
+						<div className={classes.flexItem4}>
+							<div /*className= {classes.sum} */>Summa:</div>
+						</div>
+						<div className={classes.flexItem5}>
+							{cartList.length === 0 ? (
+								<div className={classes.price}>Ostukorv on tühi</div>
+							) : (
+								<div className={classes.price}>{totalSum} €</div>
+							)}
+							<br />
+							<button
+								className={classes.buttonPay}
+								onClick={() =>
+									alert("Maksmine ainult sularahas, aadressil Aia 7")
+								}
+							>
+								Maksma
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default Cart;
