@@ -6,17 +6,15 @@ import theme from "../../theme";
 import LogoWhite from "../../images/Logo_white_png.png";
 import LandingBody from "./LandingBody";
 
-/* const useStyles = createUseStyles({
-  pinkDiv: {
-    backgroundColor: theme.colors.pink,
-    textAlign: "center",
-    heigth: "79px",
-    padding: 25,
-    fontSize: theme.spacing.l,
+const useStyles = createUseStyles({
+  footer: {
+    backgroundColor: theme.colors.brown,
   },
-}); */
+  
+});
+  
 const LandingPage = () => {
-  /*   const classes = useStyles(); */
+  const classes = useStyles();
   const adText = "Seitsmepenikoormasaapad -70%"; //@Todo tee muutuja admin page'i kaudu muudetavaks.
   return (
     <div>
@@ -26,7 +24,7 @@ const LandingPage = () => {
       <a href="/login">
         <Button title={"Logi sisse"} />
       </a>
-      <Footer />
+      <Footer cname={classes.footer}/>
     </div>
   );
 };

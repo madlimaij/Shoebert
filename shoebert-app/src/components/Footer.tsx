@@ -24,17 +24,21 @@ const useStyles = createUseStyles({
 	},
 });
 
-const Footer = () => {
+type FooterProps={
+	cname?:any;
+}
+
+const Footer: React.FC<FooterProps> = (props) => {
 	const classes = useStyles();
+	const currentYear = new Date().getFullYear();
 	return (
-		<div className={classes.footer}>
+		<div className={`${classes.footer} ${props.cname}`}>
 			<div className={classes.title}>
-				&copy; Copyright by Madli, Merje, Hanna, Liisi ja Kairit
+				&copy; {new Date().getFullYear()} Niperbond by Madli, Merje, Hanna, Liisi, Edith ja Kairit
 			</div>
 		</div>
 	);
 };
 
-//Teha css (pruun kast). Viimase asjana teha copyright asi. Teistel lehtedel footeri taust helepruun
 
 export default Footer;
