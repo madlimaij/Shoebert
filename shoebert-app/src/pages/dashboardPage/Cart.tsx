@@ -97,22 +97,26 @@ type CartProps = {
 
 const Cart: React.FC<CartProps> = ({ cartList }) => {
   const classes = useStyles();
-
+  const totalSum = cartList.reduce((acc, cur) => acc + cur.price, 0);
   return (
     <div className={classes.container}>
       <div>
         <h1 className={classes.title}>Ostukorv</h1>
         <div>
-          {" "}
           {cartList?.map((el) => (
-            <CartItem product={el} key={el.id}/>
+            <CartItem product={el} key={el.id} />
           ))}
           <div className={classes.flexContainer2}>
             <div className={classes.flexItem4}>
               <div /*className= {classes.sum} */>Summa:</div>
             </div>
             <div className={classes.flexItem5}>
-              <div className={classes.price}>132,12 €</div> <br />
+              {cartList.length === 0 ? (
+                <div className={classes.price}>Ostukorv on tühi</div>
+              ) : (
+                <div className={classes.price}>{totalSum} €</div>
+              )}
+              <br />
               <button
                 className={classes.buttonPay}
                 onClick={() =>
