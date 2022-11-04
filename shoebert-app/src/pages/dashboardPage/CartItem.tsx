@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import theme from "../../theme";
 import { createUseStyles } from "react-jss";
 import Saabas from "../../images/Saabas.png";
@@ -43,47 +43,42 @@ const useStyles = createUseStyles({
 });
 
 type CartItemProps = {
-
-  product: CartItemType;
+	product: CartItemType;
+	deleteItem: (product: CartItemType) => Promise<void>;
 };
 
-const CartItem: React.FC<CartItemProps> = ({ product }) => {
-  const classes = useStyles();
-  const deleteItem = async () => {
-    const response = await deleteCartItem(product);
-    console.log(response);
-  };
-  return (
-    <div>
-      <div className={classes.flexContainer1}>
-        <div className={classes.flexItem1}>
-          <div className={classes.img}>
-            <img src={product.imageUrl} alt="Saabas" />
-          </div>
-        </div>
-        <div className={classes.flexItem2}>
-          <div className={classes.description}>
-            <div>{product.name}</div>
-            <div>{`Suurus: ${product.size}`}</div>
-            <div>{`Hind: ${product.price} €`}</div>
-          </div>
-        </div>
-        <div className={classes.flexItem3}>
-          <div className={classes.removeIcon}>
-            <a href="">
-              <img
-                src={Remove_icon}
-                alt="Remove_icon"
-                onClick={() => {
-                  deleteItem();
-                }}
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+const CartItem: React.FC<CartItemProps> = ({ product, deleteItem }) => {
+	const classes = useStyles();
+
+	const handleDeleteItem = async () => {
+		await deleteItem(product);
+	};
+
+	return (
+		<div>
+			<div className={classes.flexContainer1}>
+				<div className={classes.flexItem1}>
+					<div className={classes.img}>
+						<img src={product.imageUrl} alt="Saabas" />
+					</div>
+				</div>
+				<div className={classes.flexItem2}>
+					<div className={classes.description}>
+						<div>{product.name}</div>
+						<div>{`Suurus: ${product.size}`}</div>
+						<div>{`Hind: ${product.price} €`}</div>
+					</div>
+				</div>
+				<div className={classes.flexItem3}>
+					<div className={classes.removeIcon}>
+						<button onClick={handleDeleteItem}>
+							<img src={Remove_icon} alt="Remove_icon" />
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default CartItem;
