@@ -7,42 +7,43 @@ import { CartItemType } from "../../models/Cart";
 import { deleteCartItem } from "../../api/controller/shopController";
 
 const useStyles = createUseStyles({
-  flexContainer1: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 20,
-  },
+	flexContainer1: {
+		display: "flex",
+		flexDirection: "row",
+		justifyContent: "space-between",
+		alignItems: "center",
+		padding: 20,
+	},
 
-  flexItem1: {
-    flexGrow: "0",
-  },
+	flexItem1: {
+		flexGrow: "0",
+	},
 
-  flexItem2: {
-    flexGrow: "1",
-    padding: 10,
-  },
+	flexItem2: {
+		flexGrow: "1",
+		padding: 10,
+	},
 
-  flexItem3: {
-    flexGrow: "0",
-    padding: 20,
-  },
-  description: {
-    text: theme.typography.body,
-    fontFamily: theme.font.fontFamily,
-    color: theme.colors.black,
-  },
-  img: {
-    "&>img": {
-      width: "70px",
-    },
-  },
+	flexItem3: {
+		flexGrow: "0",
+		padding: 20,
+	},
+	description: {
+		text: theme.typography.body,
+		fontFamily: theme.font.fontFamily,
+		color: theme.colors.black,
+	},
+	img: {
+		"&>img": {
+			width: "70px",
+		},
+	},
 
-  removeIcon: {},
+	removeIcon: {},
 });
 
 type CartItemProps = {
+
   product: CartItemType;
 };
 
