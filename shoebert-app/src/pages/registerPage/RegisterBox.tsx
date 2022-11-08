@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../components/NavButton";
 import { createUseStyles } from "react-jss";
 import theme from "../../theme";
@@ -80,6 +80,8 @@ if (response.isSuccess === true) {
     //console.log(response)
   }
 
+
+
   return (
     <div className={classes.container}>
       <div className={classes.title}>Registreeru kasutajaks:</div>
@@ -100,14 +102,14 @@ if (response.isSuccess === true) {
         <br />
         <input
           className={classes.field}
-          type="email"
+          type="email" id="email_input" required
           placeholder="E-posti aadress"
           {...register("email")}
         />{" "}
         <br />
         <input
           className={classes.field}
-          type="password"
+          type="password" pattern=".{8,}" required title="minimaalselt 8 tähemärki"
           placeholder="Salasõna"
           {...register("password")}
         />{" "}
