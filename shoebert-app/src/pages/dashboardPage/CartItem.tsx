@@ -22,7 +22,7 @@ const useStyles = createUseStyles({
 	flexItem2: {
 		flexGrow: "1",
 		padding: 10,
-	},
+		},
 
 	flexItem3: {
 		flexGrow: "0",
@@ -32,7 +32,7 @@ const useStyles = createUseStyles({
 		text: theme.typography.body,
 		fontFamily: theme.font.fontFamily,
 		color: theme.colors.black,
-	},
+			},
 	img: {
 		padding: theme.spacing.s,
 		"&>img": {
