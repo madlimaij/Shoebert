@@ -7,7 +7,7 @@ const useStyles = createUseStyles({
 	container: {
 		border: [1, "solid", theme.colors.black],
 		display: "flex",
-		maxHeight: 350,
+		maxHeight: 200,
 		flexDirection: "row",
 		justifyContent: "space-between",
 		alignContent: "left",
@@ -29,9 +29,12 @@ const useStyles = createUseStyles({
 
 	description: {
 		color: theme.colors.black,
-		fontSize: theme.typography.h4,
+		fontSize: theme.typography.body,
 		fontFamily: theme.font.fontFamily,
 		margin: 10,
+		"@media (max-width: 1700px)": {
+			display: "none",
+		  },
 	},
 
 	img: {
@@ -40,7 +43,7 @@ const useStyles = createUseStyles({
 		fontSize: 20,
 		padding: [40, 20, 20, 20],
 		"&>img": {
-			width: "400px",
+			width: "200px",
 		},
 	},
 
@@ -48,7 +51,10 @@ const useStyles = createUseStyles({
 		color: theme.colors.black,
 		fontSize: theme.typography.h4,
 		fontFamily: theme.font.fontFamily,
-		margin: 20,
+		margin: 10,
+		"@media (max-width: 1300px)": {
+			display: "none",
+		  },
 	},
 
 	label: {},
@@ -59,9 +65,10 @@ const useStyles = createUseStyles({
 		fontFamily: theme.font.fontFamily,
 		width: 55,
 		height: 40,
-		margin: 25,
+		margin: 15,
 		border: [1, "solid", theme.colors.gray],
 		background: theme.colors.white,
+		
 	},
 
 	flexItem1: {
@@ -74,6 +81,8 @@ const useStyles = createUseStyles({
 		padding: 20,
 		//background: theme.colors.lightGray,
 		fontSize: theme.typography.h2,
+		
+		
 	},
 
 	flexItem3: {

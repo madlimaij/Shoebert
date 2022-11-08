@@ -18,7 +18,7 @@ const useStyles = createUseStyles({
     top: 70,
     right: 40,
     position: "absolute",
-    "@media (max-width: 900px)": {
+    "@media (max-width: 1000px)": {
       display: "none",
     },
     transition: "background .2s ease-in-out",
