@@ -5,12 +5,13 @@ import theme from "../../theme";
 
 import LogoWhite from "../../images/Logo_white_png.png";
 import LandingBody from "./LandingBody";
+import RegisterButton from "../../components/RegisterButton";
 
 const useStyles = createUseStyles({
   footer: {
     backgroundColor: theme.colors.brown,
   },
-  
+ 
 });
   
 const LandingPage = () => {
@@ -21,6 +22,9 @@ const LandingPage = () => {
       <LogoComp logosource={LogoWhite} />
       {/*       <PinkDiv cname={classes.pinkDiv} adtext={adText} />*/}
       <LandingBody />
+      <a href="/register">
+        <RegisterButton title={"Registreeru"} />
+      </a>
       <a href="/login">
         <Button title={"Logi sisse"} />
       </a>

@@ -32,7 +32,7 @@ const useStyles = createUseStyles({
 		fontSize: theme.typography.body,
 		fontFamily: theme.font.fontFamily,
 		margin: 10,
-		"@media (max-width: 1700px)": {
+		"@media (max-width: 1300px)": {
 			display: "none",
 		  },
 	},
@@ -52,7 +52,7 @@ const useStyles = createUseStyles({
 		fontSize: theme.typography.h4,
 		fontFamily: theme.font.fontFamily,
 		margin: 10,
-		"@media (max-width: 1300px)": {
+		"@media (max-width: 1600px)": {
 			display: "none",
 		  },
 	},
@@ -68,6 +68,9 @@ const useStyles = createUseStyles({
 		margin: 15,
 		border: [1, "solid", theme.colors.gray],
 		background: theme.colors.white,
+		"@media (max-width: 1700px)": {
+			display: "none",
+		  },
 		
 	},
 
