@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { useNavigate } from "react-router-dom";
 import LogoTrans from "../../images/Logo_trans_png.png";
+import SadManImg from "../../images/sadman.jpg";
 import { Button, Footer, LogoComp, PinkDiv } from "../../components";
 import Cart from "./Cart";
 import ListCard from "./ListCard";
@@ -44,6 +45,12 @@ const useStyles = createUseStyles({
     flexGrow: "1",
     height: "100%",
   },
+  sadManImage: {
+    width: "auto",
+    height: "55vh",
+    margin: "auto",
+    border: [`${theme.colors.black} solid 1px`],
+  },
   pinkDiv: {
     backgroundColor: theme.colors.lightPink,
     textAlign: "center",
@@ -58,6 +65,7 @@ const DashboardPage = () => {
   const [currentUser, setCurrentUser] = useState<AuthUser | null>(null);
   const [productList, setProductList] = useState<Product[] | null>(null); //Teine pool on default state
   const [cartItemList, setCartItemList] = useState<CartItemType[]>([]);
+  /*   const [noUser, setNoUser] = useState<boolean>(false) */
   const navigate = useNavigate();
   const handleLogout = () => {
     removeAuthToken();
@@ -68,10 +76,9 @@ const DashboardPage = () => {
     const response = await getCurrentUser();
     if (response.isSuccess === true) {
       setCurrentUser(response.body);
-    } else {
-      navigate("/");
-      alert("Viga!");
-    }
+    } /* else {
+      setNoUser(true)
+    }  */
   }, []);
 
   useEffectAsync(async () => {
@@ -114,22 +121,39 @@ const DashboardPage = () => {
   };
 
   const adText = `Tere tulemast, ${currentUser?.firstName} ${currentUser?.lastName}!`;
+  const noUserText = `Midagi läks viltu :(.`;
   return (
     <div>
       <LogoComp logosource={LogoTrans} />
-      <PinkDiv cname={classes.pinkDiv} adtext={adText} />
+      <PinkDiv
+        cname={classes.pinkDiv}
+        adtext={currentUser ? adText : noUserText}
+      />
       <div className={classes.container}>
-        <div className={classes.listCard}>
-          {productList?.map((el) => (
-            <ListCard product={el} addToCart={addToCart} key={el.id} />
-          ))}
-        </div>
+        {currentUser && (
+          <div className={classes.listCard}>
+            {currentUser &&
+              productList?.map((el) => (
+                <ListCard product={el} addToCart={addToCart} key={el.id} />
+              ))}
+          </div>
+        )}
         <div className={classes.cart}>
-          <Cart deleteItem={deleteItem} cartList={cartItemList} />
+          {currentUser ? (
+            <Cart deleteItem={deleteItem} cartList={cartItemList} />
+          ) : (
+            <img
+              src={SadManImg}
+              alt="SadManImg"
+              className={classes.sadManImage}
+            />
+          )}
         </div>
-        <a href="/">
-          <Button title={"Logi välja"} onClick={handleLogout} />
-        </a>
+        {currentUser && (
+          <a href="/">
+            <Button title={"Logi välja"} onClick={handleLogout} />
+          </a>
+        )}
       </div>
       <Footer />
     </div>
