@@ -33,12 +33,13 @@ const useStyles = createUseStyles({
 
   slogan: {
     backgroundColor: "white",
-    fontSize: 24,
+    fontSize: theme.spacing.l,
+    fontWeight: "bold",
     height: "auto",
-    width: "40%", //@Todo: muuta kasti suurus relatiivseks
-    padding: 5,
+    width: "fit-content",
+    padding: 10,
     position: "relative",
-    top: 100,
+    top: 150,
     left: 200,
     border: 1,
     borderColor: theme.colors.black,
@@ -54,16 +55,20 @@ const useStyles = createUseStyles({
 });
 
 const LandingBody: React.FC = () => {
-  const adText = "Seitsmepenikoormasaapad -70%"; //@Todo tee muutuja admin page'i kaudu muudetavaks.
+  const adText = "Seitsmepenikoormasaapad -70%";
   const classes = useStyles();
   return (
     <div className={classes.container}>
       <br />
       <PinkDiv cname={classes.pinkDiv} adtext={adText} />
-      <div className={classes.slogan}>
-        Mehised saapad. Poriloikudes keksimiseks.
+      <p className={classes.slogan}>
+        Mehised saapad.
         {/* @Todo: Tekst muudetavaks? Tekst vahetub koos pildiga? */}
-      </div>
+      </p>
+      <p className={classes.slogan}>
+        Poriloikudes keksimiseks.
+        {/* @Todo: Tekst muudetavaks? Tekst vahetub koos pildiga? */}
+      </p>
       <a href="/login">
         <button className={classes.buttonGoShop}>MINE POODI</button>
       </a>

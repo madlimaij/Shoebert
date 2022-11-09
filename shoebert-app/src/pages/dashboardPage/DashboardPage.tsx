@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
-import { useNavigate } from "react-router-dom";
 import LogoTrans from "../../images/Logo_trans_png.png";
 import SadManImg from "../../images/sadman.jpg";
 import { Button, Footer, LogoComp, PinkDiv } from "../../components";
@@ -16,7 +15,7 @@ import {
   getCartItems,
   getProductList,
 } from "../../api/controller/shopController";
-import { setAuthToken, removeAuthToken } from "../../helpers/authHelpers";
+import { removeAuthToken } from "../../helpers/authHelpers";
 import { Product } from "../../models/Product";
 import { CartItemType } from "../../models/Cart";
 
@@ -26,7 +25,6 @@ const useStyles = createUseStyles({
     flexDirection: "row",
     alignContent: "space-between",
     gap: 15,
-    //top: 200,
     margin: 50,
   },
   listCard: {
@@ -34,14 +32,10 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     flexGrow: "2",
     width: "100%",
-    /* color: theme.colors.black,
-    fontSize: theme.typography.h4,
-    fontFamily: theme.font.fontFamily */
   },
   cart: {
     display: "flex",
     border: [1, theme.colors.black],
-    /*color: theme.colors.black,*/
     flexGrow: "1",
     height: "100%",
   },
@@ -63,22 +57,18 @@ const useStyles = createUseStyles({
 const DashboardPage = () => {
   const classes = useStyles();
   const [currentUser, setCurrentUser] = useState<AuthUser | null>(null);
-  const [productList, setProductList] = useState<Product[] | null>(null); //Teine pool on default state
+  const [productList, setProductList] = useState<Product[] | null>(null);
   const [cartItemList, setCartItemList] = useState<CartItemType[]>([]);
-  /*   const [noUser, setNoUser] = useState<boolean>(false) */
-  const navigate = useNavigate();
   const handleLogout = () => {
     removeAuthToken();
-    window.location.reload(); //teeb refreshi lehele
+    window.location.reload();
   };
 
   useEffectAsync(async () => {
     const response = await getCurrentUser();
     if (response.isSuccess === true) {
       setCurrentUser(response.body);
-    } /* else {
-      setNoUser(true)
-    }  */
+    }
   }, []);
 
   useEffectAsync(async () => {
