@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
-
-import { Button, Footer, LogoComp, PinkDiv } from "../../components";
+import { useNavigate } from "react-router-dom";
+import { Button, Footer, LogoComp, PinkDiv, SearchBar } from "../../components";
 import Cart from "./Cart";
 import ListCard from "./ListCard";
 import theme from "../../common/theme";
@@ -14,7 +14,7 @@ import {
   getCartItems,
   getProductList,
 } from "../../api/controller/shopController";
-import { removeAuthToken } from "../../helpers/authHelpers";
+import { getAuthToken, removeAuthToken } from "../../helpers/authHelpers";
 import { Product } from "../../models/Product";
 import { CartItemType } from "../../models/Cart";
 import { LogoTrans, SadManImg } from "../../images";
@@ -26,6 +26,7 @@ const useStyles = createUseStyles({
     alignContent: "space-between",
     gap: 15,
     margin: 50,
+    minHeight: "54.5vh",
   },
   listCard: {
     display: "flex",
@@ -59,6 +60,10 @@ const DashboardPage = () => {
   const [currentUser, setCurrentUser] = useState<AuthUser | null>(null);
   const [productList, setProductList] = useState<Product[] | null>(null);
   const [cartItemList, setCartItemList] = useState<CartItemType[]>([]);
+  const [searchResult, setSearchResult] = useState<Product[] | null>(null);
+  const [tokenMissing, setTokenMissing] = useState<boolean>(false);
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     removeAuthToken();
     window.location.reload();
@@ -66,8 +71,17 @@ const DashboardPage = () => {
 
   useEffectAsync(async () => {
     const response = await getCurrentUser();
+    const navigation = () => navigate("/");
     if (response.isSuccess === true) {
       setCurrentUser(response.body);
+    } else {
+      window.setTimeout(navigation, 4000);
+    }
+  }, []);
+  useEffectAsync(async () => {
+    const tokenOk = getAuthToken();
+    if (tokenOk) {
+      setTokenMissing(true);
     }
   }, []);
 
@@ -98,10 +112,8 @@ const DashboardPage = () => {
       setCartItemList([...cartItemList, response.body]);
     }
   };
-
   const deleteItem = async (product: CartItemType) => {
     const isSuccess = await deleteCartItem(product);
-
     if (isSuccess) {
       const filterItems = cartItemList.filter((el) => product.id !== el.id);
       setCartItemList(filterItems);
@@ -111,25 +123,34 @@ const DashboardPage = () => {
   };
 
   const adText = `Tere tulemast, ${currentUser?.firstName} ${currentUser?.lastName}!`;
-  const noUserText = `Midagi läks viltu :(.`;
+  const noUserText = `Midagi läks viltu :(. Suuname su algusesse tagasi.`;
   return (
     <div>
       <LogoComp logosource={LogoTrans} />
       <PinkDiv
         cname={classes.pinkDiv}
-        adtext={currentUser ? adText : noUserText}
+        adtext={tokenMissing! ? adText : noUserText}
       />
+      {tokenMissing! && (
+        <SearchBar
+          productList={productList}
+          setSearchResult={setSearchResult}
+        />
+      )}
       <div className={classes.container}>
-        {currentUser && (
+        {tokenMissing! && (
           <div className={classes.listCard}>
-            {currentUser &&
-              productList?.map((el) => (
-                <ListCard product={el} addToCart={addToCart} key={el.id} />
-              ))}
+            {tokenMissing! && searchResult
+              ? searchResult?.map((el) => (
+                  <ListCard product={el} addToCart={addToCart} key={el.id} />
+                ))
+              : productList?.map((el) => (
+                  <ListCard product={el} addToCart={addToCart} key={el.id} />
+                ))}
           </div>
         )}
         <div className={classes.cart}>
-          {currentUser ? (
+          {tokenMissing! ? (
             <Cart deleteItem={deleteItem} cartList={cartItemList} />
           ) : (
             <img
@@ -139,7 +160,7 @@ const DashboardPage = () => {
             />
           )}
         </div>
-        {currentUser && (
+        {tokenMissing! && (
           <a href="/">
             <Button title={"Logi välja"} onClick={handleLogout} />
           </a>

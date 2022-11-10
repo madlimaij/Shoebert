@@ -43,7 +43,7 @@ const useStyles = createUseStyles({
 
 const LandingPage = () => {
   const classes = useStyles();
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(true);
   const handleDark = () => {
     setDarkMode(!darkMode);
   };

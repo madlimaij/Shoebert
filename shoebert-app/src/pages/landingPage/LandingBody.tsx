@@ -72,6 +72,7 @@ const useStyles = createUseStyles({
 type LandingBodyProps = {
   darkMode: boolean;
 };
+
 const LandingBody: React.FC<LandingBodyProps> = ({ darkMode }) => {
   const adText = "Seitsmepenikoormasaapad -70%";
   const classes = useStyles();
@@ -85,7 +86,7 @@ const LandingBody: React.FC<LandingBodyProps> = ({ darkMode }) => {
 
       <p className={classes.slogan}>Mehised saapad.</p>
       {darkMode ? (
-        <p className={classes.slogan}>Rüblikule, kelle elu on rööpas.</p>
+        <p className={classes.slogan}>Kaagile, kelle elu on rööpas.</p>
       ) : (
         <p className={classes.slogan}>Poriloikudes keksimiseks.</p>
       )}
