@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { PinkDiv } from "../../components";
-import RailBoots from "../../images/RailBoots.jpg";
-import RainyBoots from "../../images/RainyBoots.png";
-import theme from "../../theme";
+import theme from "../../common/theme";
+import { RailBoots, RainyBoots } from "../../images";
 
 const useStyles = createUseStyles({
   containerDark: {
@@ -84,15 +83,9 @@ const LandingBody: React.FC<LandingBodyProps> = ({ darkMode }) => {
         adtext={adText}
       />
 
-      <p className={classes.slogan}>
-        Mehised saapad.
-        {/* @Todo: Tekst muudetavaks? Tekst vahetub koos pildiga? */}
-      </p>
+      <p className={classes.slogan}>Mehised saapad.</p>
       {darkMode ? (
-        <p className={classes.slogan}>
-          Rüblikule, kelle elu on rööpas.
-          {/* @Todo: Tekst muudetavaks? Tekst vahetub koos pildiga? */}
-        </p>
+        <p className={classes.slogan}>Rüblikule, kelle elu on rööpas.</p>
       ) : (
         <p className={classes.slogan}>Poriloikudes keksimiseks.</p>
       )}
@@ -102,7 +95,5 @@ const LandingBody: React.FC<LandingBodyProps> = ({ darkMode }) => {
     </div>
   );
 };
-
-//Teha css, lisada slogan ja nupp (see nupp on komponent "BodyButton", mis viib login lehele)
 
 export default LandingBody;

@@ -1,6 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import theme from "../theme";
+import theme from "../common/theme";
 
 const useStyles = createUseStyles({
   button: {
@@ -30,17 +30,17 @@ const useStyles = createUseStyles({
 });
 
 type RegisterButtonProps = {
-  title: string,
-  onClick?: () => void,
+  title: string;
+  onClick?: () => void;
 };
 
 const RegisterButton: React.FC<RegisterButtonProps> = ({ title, onClick }) => {
   const classes = useStyles();
   return (
-       <button className={classes.button} onClick={onClick}>
+    <button className={classes.button} onClick={onClick}>
       {title}
     </button>
-   );
+  );
 };
 
 export default RegisterButton;

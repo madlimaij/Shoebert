@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { LogoComp, PinkDiv, Button, Footer } from "../../components";
-import theme from "../../theme";
-import LogoTrans from "../../images/Logo_trans_png.png";
-import LogoWhite from "../../images/Logo_white_png.png";
+import theme from "../../common/theme";
 import LandingBody from "./LandingBody";
 import RegisterButton from "../../components/RegisterButton";
+import { LogoWhite, LogoTrans } from "../../images";
 
 const useStyles = createUseStyles({
   footerDark: {
@@ -25,13 +24,6 @@ const useStyles = createUseStyles({
     top: 200,
     "&:hover": {
       border: [`${theme.colors.lightPink} solid 1px`],
-      /*     backgroundColor: theme.colors.white,
-    border: [`${theme.colors.black} solid 1px`],
-    fontFamily: theme.font.fontFamily,
-    cursor: "pointer",
-    transition: "background .2s ease-in-out",
-    "&:hover": {
-      opacity: "100%", */
     },
   },
   buttonSun: {
@@ -46,13 +38,6 @@ const useStyles = createUseStyles({
     "&:hover": {
       border: [`${theme.colors.pink} solid 1px`],
     },
-    /*     backgroundColor: theme.colors.white,
-    border: [`${theme.colors.black} solid 1px`],
-    fontFamily: theme.font.fontFamily,
-    cursor: "pointer",
-    transition: "background .2s ease-in-out",
-    "&:hover": {
-      opacity: "100%", */
   },
 });
 
@@ -62,8 +47,7 @@ const LandingPage = () => {
   const handleDark = () => {
     setDarkMode(!darkMode);
   };
-  const adText = "Seitsmepenikoormasaapad -70%"; //@Todo tee muutuja admin page'i kaudu muudetavaks.
-
+  const adText = "Seitsmepenikoormasaapad -70%";
   return (
     <div>
       {darkMode ? (
@@ -71,7 +55,6 @@ const LandingPage = () => {
       ) : (
         <LogoComp logosource={LogoTrans} />
       )}
-      {/*       <PinkDiv cname={classes.pinkDiv} adtext={adText} />*/}
       {darkMode ? (
         <button onClick={handleDark} className={classes.button}>
           <span className="material-symbols-outlined">rainy</span>

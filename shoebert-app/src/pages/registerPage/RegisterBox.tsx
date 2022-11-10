@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import Button from "../../components/NavButton";
 import { createUseStyles } from "react-jss";
-import theme from "../../theme";
-import { findByLabelText } from "@testing-library/react";
-import { isWhiteSpaceSingleLine } from "typescript";
+import theme from "../../common/theme";
 import { useForm, FieldValues } from "react-hook-form";
 import { registerUser } from "../../api/controller/authController";
 import { setAuthToken } from "../../helpers/authHelpers";
@@ -79,7 +76,6 @@ const RegisterBox: React.FC = () => {
         navigate("/dashboard");
       }
     }
-    //console.log(response)
   };
 
   return (

@@ -1,7 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { Link } from "react-router-dom";
-import theme from "../../theme";
+import theme from "../../common/theme";
 import { useForm, FieldValues } from "react-hook-form";
 import { loginUser } from "../../api/controller/authController";
 import { setAuthToken } from "../../helpers/authHelpers";
@@ -85,8 +84,6 @@ const LoginBox: React.FC = () => {
         navigate("/dashboard");
       }
     }
-
-    console.log(response);
   };
 
   return (
@@ -130,8 +127,5 @@ const LoginBox: React.FC = () => {
     </div>
   );
 };
-
-//kogu container keskele ja vasakule? Kuidas teha
-//To-do: lisa unustasid parooli ja logi sisse nupu vahele marginit ja paddingut
 
 export default LoginBox;

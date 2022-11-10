@@ -1,6 +1,5 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import theme from "../theme";
 import NavigationPng from "../images/NavigationPng.png";
 
 const useStyles = createUseStyles({

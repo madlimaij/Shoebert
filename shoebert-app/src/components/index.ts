@@ -6,4 +6,3 @@ import PinkDiv from "./PinkDiv";
 
 export { Button, Footer, LogoComp, Navbar, PinkDiv };
 
-// @Todo: muuda kõik impordid

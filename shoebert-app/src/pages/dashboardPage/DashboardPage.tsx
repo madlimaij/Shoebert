@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
-import LogoTrans from "../../images/Logo_trans_png.png";
-import SadManImg from "../../images/sadman.jpg";
+
 import { Button, Footer, LogoComp, PinkDiv } from "../../components";
 import Cart from "./Cart";
 import ListCard from "./ListCard";
-import theme from "../../theme";
-import useEffectAsync from "../../theme/useEffectAsync";
+import theme from "../../common/theme";
+import useEffectAsync from "../../common/useEffectAsync";
 import { getCurrentUser } from "../../api/controller/authController";
 import { AuthUser } from "../../models/AuthUser";
 import {
@@ -18,6 +17,7 @@ import {
 import { removeAuthToken } from "../../helpers/authHelpers";
 import { Product } from "../../models/Product";
 import { CartItemType } from "../../models/Cart";
+import { LogoTrans, SadManImg } from "../../images";
 
 const useStyles = createUseStyles({
   container: {
