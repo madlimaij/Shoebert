@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { PinkDiv } from "../../components";
 import RailBoots from "../../images/RailBoots.jpg";
+import RainyBoots from "../../images/RainyBoots.png";
 import theme from "../../theme";
 
 const useStyles = createUseStyles({
-  container: {
+  containerDark: {
     backgroundImage: `url(${RailBoots})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    minWidth: "100%",
+    minHeight: "100%",
+    height: "100vh",
+  },
+  containerLight: {
+    backgroundImage: `url(${RainyBoots})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     minWidth: "100%",
@@ -45,8 +54,15 @@ const useStyles = createUseStyles({
     borderColor: theme.colors.black,
     opacity: "70%",
   },
-  pinkDiv: {
+  pinkDivDark: {
     backgroundColor: theme.colors.pink,
+    textAlign: "center",
+    heigth: "79px",
+    padding: 25,
+    fontSize: theme.spacing.l,
+  },
+  pinkDivLight: {
+    backgroundColor: theme.colors.lightPink,
     textAlign: "center",
     heigth: "79px",
     padding: 25,
@@ -54,21 +70,32 @@ const useStyles = createUseStyles({
   },
 });
 
-const LandingBody: React.FC = () => {
+type LandingBodyProps = {
+  darkMode: boolean;
+};
+const LandingBody: React.FC<LandingBodyProps> = ({ darkMode }) => {
   const adText = "Seitsmepenikoormasaapad -70%";
   const classes = useStyles();
   return (
-    <div className={classes.container}>
+    <div className={darkMode ? classes.containerDark : classes.containerLight}>
       <br />
-      <PinkDiv cname={classes.pinkDiv} adtext={adText} />
+      <PinkDiv
+        cname={darkMode ? classes.pinkDivDark : classes.pinkDivLight}
+        adtext={adText}
+      />
+
       <p className={classes.slogan}>
         Mehised saapad.
         {/* @Todo: Tekst muudetavaks? Tekst vahetub koos pildiga? */}
       </p>
-      <p className={classes.slogan}>
-        Poriloikudes keksimiseks.
-        {/* @Todo: Tekst muudetavaks? Tekst vahetub koos pildiga? */}
-      </p>
+      {darkMode ? (
+        <p className={classes.slogan}>
+          Rüblikule, kelle elu on rööpas.
+          {/* @Todo: Tekst muudetavaks? Tekst vahetub koos pildiga? */}
+        </p>
+      ) : (
+        <p className={classes.slogan}>Poriloikudes keksimiseks.</p>
+      )}
       <a href="/login">
         <button className={classes.buttonGoShop}>MINE POODI</button>
       </a>
