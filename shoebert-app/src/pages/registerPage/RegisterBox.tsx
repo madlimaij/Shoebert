@@ -17,7 +17,7 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     gap: 15,
-    margin: 150,
+    margin: "calc((100vh - 692px)/2)",
   },
 
   title: {
@@ -43,8 +43,10 @@ const useStyles = createUseStyles({
     cursor: "pointer",
     color: theme.colors.black,
     border: "none",
+    margin: 5,
     width: 470,
     maxWidth: "100%",
+    position: "relative",
     fontSize: theme.typography.h4,
     fontFamily: theme.font.fontFamily,
     padding: theme.spacing.s,
@@ -67,30 +69,28 @@ const RegisterBox: React.FC = () => {
       firstName: formValues.firstName,
       lastName: formValues.lastName,
       password: formValues.password,
-    }
+    };
 
     const response = await registerUser(newUser);
-if (response.isSuccess === true) {
-  const {accessToken} =response.body;
-  if (accessToken) {
-    setAuthToken(accessToken);
-    navigate ("/dashboard");
-  }
-}
+    if (response.isSuccess === true) {
+      const { accessToken } = response.body;
+      if (accessToken) {
+        setAuthToken(accessToken);
+        navigate("/dashboard");
+      }
+    }
     //console.log(response)
-  }
-
-
+  };
 
   return (
     <div className={classes.container}>
       <div className={classes.title}>Registreeru kasutajaks:</div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input 
-        className={classes.field} 
-        type="text" 
-        placeholder="Eesnimi"
-        {...register("firstName")}
+        <input
+          className={classes.field}
+          type="text"
+          placeholder="Eesnimi"
+          {...register("firstName")}
         />{" "}
         <br />
         <input
@@ -102,21 +102,26 @@ if (response.isSuccess === true) {
         <br />
         <input
           className={classes.field}
-          type="email" id="email_input" required
+          type="email"
+          id="email_input"
+          required
           placeholder="E-posti aadress"
           {...register("email")}
         />{" "}
         <br />
         <input
           className={classes.field}
-          type="password" pattern=".{8,}" required title="minimaalselt 8 tähemärki"
+          type="password"
+          pattern=".{8,}"
+          required
+          title="minimaalselt 8 tähemärki"
           placeholder="Salasõna"
           {...register("password")}
         />{" "}
         <br />
         <a href="/login">
-        <button className={classes.button}>Registreeru</button>
-      </a>
+          <button className={classes.button}>Registreeru</button>
+        </a>
       </form>
     </div>
   );

@@ -23,7 +23,7 @@ const LoginPage = () => {
     <div>
       <LogoComp logosource={LogoTrans} />
       <PinkDiv cname={classes.pinkDiv} />
-      <LoginBox />,
+      <LoginBox />
       <Footer />
     </div>
   );

@@ -15,18 +15,44 @@ const useStyles = createUseStyles({
     backgroundColor: theme.colors.lightBrown,
   },
   button: {
-    backgroundColor: theme.colors.white,
-    position: "fixed",
+    border: [`transparent solid 1px`],
+    width: 36,
+    height: 36,
+    backgroundColor: theme.colors.pink,
+    cursor: "pointer",
+    position: "absolute",
     right: 40,
-    top: 193,
-    padding: 15,
+    top: 200,
+    "&:hover": {
+      border: [`${theme.colors.lightPink} solid 1px`],
+      /*     backgroundColor: theme.colors.white,
     border: [`${theme.colors.black} solid 1px`],
     fontFamily: theme.font.fontFamily,
     cursor: "pointer",
     transition: "background .2s ease-in-out",
     "&:hover": {
-      opacity: "100%",
+      opacity: "100%", */
     },
+  },
+  buttonSun: {
+    border: [`transparent solid 1px`],
+    width: 36,
+    height: 36,
+    backgroundColor: theme.colors.lightPink,
+    cursor: "pointer",
+    position: "absolute",
+    right: 40,
+    top: 200,
+    "&:hover": {
+      border: [`${theme.colors.pink} solid 1px`],
+    },
+    /*     backgroundColor: theme.colors.white,
+    border: [`${theme.colors.black} solid 1px`],
+    fontFamily: theme.font.fontFamily,
+    cursor: "pointer",
+    transition: "background .2s ease-in-out",
+    "&:hover": {
+      opacity: "100%", */
   },
 });
 
@@ -48,11 +74,11 @@ const LandingPage = () => {
       {/*       <PinkDiv cname={classes.pinkDiv} adtext={adText} />*/}
       {darkMode ? (
         <button onClick={handleDark} className={classes.button}>
-          Helge ☀️
+          <span className="material-symbols-outlined">rainy</span>
         </button>
       ) : (
-        <button onClick={handleDark} className={classes.button}>
-          Sünge 🌙
+        <button onClick={handleDark} className={classes.buttonSun}>
+          <span className="material-symbols-outlined">light_mode</span>
         </button>
       )}
       <LandingBody darkMode={darkMode} />
