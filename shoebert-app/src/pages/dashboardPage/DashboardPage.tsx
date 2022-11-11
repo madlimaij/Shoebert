@@ -75,13 +75,15 @@ const DashboardPage = () => {
     if (response.isSuccess === true) {
       setCurrentUser(response.body);
     } else {
-      window.setTimeout(navigation, 4000);
+      window.setTimeout(navigation, 3000);
     }
   }, []);
   useEffectAsync(async () => {
     const tokenOk = getAuthToken();
+    console.log(tokenOk);
     if (tokenOk) {
       setTokenMissing(true);
+      console.log(tokenMissing);
     }
   }, []);
 
@@ -123,7 +125,7 @@ const DashboardPage = () => {
   };
 
   const adText = `Tere tulemast, ${currentUser?.firstName} ${currentUser?.lastName}!`;
-  const noUserText = `Midagi läks viltu :(. Suuname su algusesse tagasi.`;
+  const noUserText = `Midagi läks viltu :(. Suuname su algusesse tagasi...`;
   return (
     <div>
       <LogoComp logosource={LogoTrans} />
