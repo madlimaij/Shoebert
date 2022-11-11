@@ -1,9 +1,9 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { LogoComp, PinkDiv, Button, Footer } from "../../components";
-import theme from "../../theme";
-import LogoTrans from "../../images/Logo_trans_png.png";
+import theme from "../../common/theme";
 import RegisterBox from "./RegisterBox";
+import { LogoTrans } from "../../images";
 
 const useStyles = createUseStyles({
   pinkDiv: {

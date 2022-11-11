@@ -3,7 +3,6 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavigationPath from "./routes/NavigationPath";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   return (

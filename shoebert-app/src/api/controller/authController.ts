@@ -65,5 +65,6 @@ export async function getCurrentUser(): Promise<any> {
     }
     return {
         isSuccess: false,
+        hasError: true
     }
 } 

@@ -1,7 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { Link } from "react-router-dom";
-import theme from "../../theme";
+import theme from "../../common/theme";
 import { useForm, FieldValues } from "react-hook-form";
 import { loginUser } from "../../api/controller/authController";
 import { setAuthToken } from "../../helpers/authHelpers";
@@ -12,8 +11,7 @@ const useStyles = createUseStyles({
     position: "relative",
     display: "flex",
     gap: 15,
-    //Hiljem margin asendada top: 305,??
-    margin: 150,
+    margin: "calc((100vh - 632px)/2)",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
@@ -70,27 +68,23 @@ const LoginBox: React.FC = () => {
   const classes = useStyles();
   const { handleSubmit, register } = useForm();
   const navigate = useNavigate();
-  
-    const onSubmit = async (formValues: FieldValues) => {
-      const loggedInUser = {
-        email: formValues.email,
-        password: formValues.password,
+
+  const onSubmit = async (formValues: FieldValues) => {
+    const loggedInUser = {
+      email: formValues.email,
+      password: formValues.password,
+    };
+
+    const response = await loginUser(loggedInUser);
+
+    if (response.isSuccess === true) {
+      const { accessToken } = response.body;
+      if (accessToken) {
+        setAuthToken(accessToken);
+        navigate("/dashboard");
       }
-  
-      const response = await loginUser(loggedInUser);
-
-      if (response.isSuccess === true) {
-        const {accessToken} =response.body;
-        if (accessToken) {
-          setAuthToken(accessToken);
-          navigate ("/dashboard");
-        }
-
-      }
-
-    console.log(response)
-  
     }
+  };
 
   return (
     <div className={classes.container}>
@@ -101,7 +95,6 @@ const LoginBox: React.FC = () => {
           placeholder="E-posti aadress"
           className={classes.inputBox}
           {...register("email")}
-
         />{" "}
         <br />
         <input
@@ -113,17 +106,16 @@ const LoginBox: React.FC = () => {
         <br />
         <br />
         <a
-        className={classes.link}
-        onClick={() => alert("aga.. Proovi veel, äkki tuleb ikka meelde?")}
-      >
-        Unustasid salasõna?
-        <br />
-        <br />
-      </a>
-    
-      <a href="/dashboard">
-        <button className={classes.button}>Logi sisse</button>
-      </a>
+          className={classes.link}
+          onClick={() => alert("aga.. Proovi veel, äkki tuleb ikka meelde?")}
+        >
+          Unustasid salasõna?
+          <br />
+          <br />
+        </a>
+        <a href="/dashboard">
+          <button className={classes.button}>Logi sisse</button>
+        </a>
       </form>
 
       <div className={classes.containerText}>
@@ -135,8 +127,5 @@ const LoginBox: React.FC = () => {
     </div>
   );
 };
-
-//kogu container keskele ja vasakule? Kuidas teha
-//To-do: lisa unustasid parooli ja logi sisse nupu vahele marginit ja paddingut 
 
 export default LoginBox;

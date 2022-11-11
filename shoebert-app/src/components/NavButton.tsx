@@ -1,6 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import theme from "../theme";
+import theme from "../common/theme";
 
 const useStyles = createUseStyles({
   button: {
@@ -30,8 +30,8 @@ const useStyles = createUseStyles({
 });
 
 type ButtonProps = {
-  title: string,
-  onClick?: () => void,
+  title: string;
+  onClick?: () => void;
 };
 
 const Button: React.FC<ButtonProps> = ({ title, onClick }) => {

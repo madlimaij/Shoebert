@@ -1,7 +1,6 @@
 import React from "react";
-import Button from "../../components/NavButton";
 import { createUseStyles } from "react-jss";
-import theme from "../../theme";
+import theme from "../../common/theme";
 import CartItem from "./CartItem";
 import { CartItemType } from "../../models/Cart";
 
@@ -41,15 +40,10 @@ const useStyles = createUseStyles({
   },
 
   flexItem4: {
-    //background: theme.colors.lightGray,
-    //backgroundColor: "grey",
     padding: 20,
   },
 
   flexItem5: {
-    //background: theme.colors.gray,
-    /* marginRight: 20,
-    marginBottom:20, */
     padding: 20,
   },
 
@@ -63,7 +57,7 @@ const useStyles = createUseStyles({
   price: {
     color: theme.colors.black,
     fontWeight: "bold",
-	fontSize: theme.typography.h3,
+    fontSize: theme.typography.h3,
   },
 
   description: {
@@ -73,20 +67,20 @@ const useStyles = createUseStyles({
   },
 
   buttonPay: {
-	backgroundColor: theme.colors.white,
-	cursor: "pointer",
-	color: theme.colors.black,
-	border: [1, "solid", theme.colors.black],
-	width: 128,
-	maxWidth: "100%",
-	fontSize: theme.typography.button,
-	fontFamily: theme.font.fontFamily,
-	padding: theme.spacing.s,
-	transition: "background .2s ease-in-out",
-	"&:hover": {
-		borderColor: theme.colors.pink,
-		color: theme.colors.pink,
-	},
+    backgroundColor: theme.colors.white,
+    cursor: "pointer",
+    color: theme.colors.black,
+    border: [1, "solid", theme.colors.black],
+    width: 128,
+    maxWidth: "100%",
+    fontSize: theme.typography.button,
+    fontFamily: theme.font.fontFamily,
+    padding: theme.spacing.s,
+    transition: "background .2s ease-in-out",
+    "&:hover": {
+      borderColor: theme.colors.pink,
+      color: theme.colors.pink,
+    },
   },
 
   text: {
@@ -95,9 +89,9 @@ const useStyles = createUseStyles({
   },
 
   sum: {
-	fontSize: theme.typography.h3,
-	fontWeight: "bold",
-  }
+    fontSize: theme.typography.h3,
+    fontWeight: "bold",
+  },
 });
 
 type CartProps = {
@@ -122,7 +116,7 @@ const Cart: React.FC<CartProps> = ({ cartList, deleteItem }) => {
           ))}
           <div className={classes.flexContainer2}>
             <div className={classes.flexItem4}>
-              <div className= {classes.sum}>Summa:</div>
+              <div className={classes.sum}>Summa:</div>
             </div>
             <div className={classes.flexItem5}>
               <div className={classes.price}>{totalSum} €</div>

@@ -6,7 +6,6 @@ type PinkDivProps = {
 };
 
 const PinkDiv: React.FC<PinkDivProps> = (props) => {
-  //@Todo: Muuda "any".
   return (
     <div>
       <div className={props.cname}>{props.adtext}</div>
@@ -15,4 +14,3 @@ const PinkDiv: React.FC<PinkDivProps> = (props) => {
 };
 
 export default PinkDiv;
- 

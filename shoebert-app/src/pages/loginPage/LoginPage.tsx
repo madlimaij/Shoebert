@@ -4,8 +4,8 @@ import Footer from "../../components/Footer";
 import LoginBox from "./LoginBox";
 import LogoComp from "../../components/LogoComp";
 import PinkDiv from "../../components/PinkDiv";
-import theme from "../../theme";
-import LogoTrans from "../../images/Logo_trans_png.png";
+import theme from "../../common/theme";
+import { LogoTrans } from "../../images";
 
 const useStyles = createUseStyles({
   pinkDiv: {
@@ -23,7 +23,7 @@ const LoginPage = () => {
     <div>
       <LogoComp logosource={LogoTrans} />
       <PinkDiv cname={classes.pinkDiv} />
-      <LoginBox />,
+      <LoginBox />
       <Footer />
     </div>
   );
