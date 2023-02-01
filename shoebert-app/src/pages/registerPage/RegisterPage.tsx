@@ -9,12 +9,13 @@ const useStyles = createUseStyles({
   pinkDiv: {
     backgroundColor: theme.colors.lightPink,
     textAlign: "center",
-    padding: 41,
-    fontSize: theme.spacing.l,
+    heigth: "79px",
+/*     padding: 41,
+ */    fontSize: theme.spacing.l,
   },
 });
 
-const RegisterPage = () => {
+const RegisterPage:React.FC = () => {
   const classes = useStyles();
   return (
     <div>

@@ -9,7 +9,7 @@ const useStyles = createUseStyles({
     backgroundImage: `url(${RailBoots})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    minWidth: "100%",
+    minWidth: "100vw",
     minHeight: "100%",
     height: "100vh",
   },

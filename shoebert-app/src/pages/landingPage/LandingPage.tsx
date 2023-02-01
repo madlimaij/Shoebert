@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
-import { LogoComp, PinkDiv, Button, Footer } from "../../components";
+import { LogoComp, Button, Footer } from "../../components";
 import theme from "../../common/theme";
 import LandingBody from "./LandingBody";
 import RegisterButton from "../../components/RegisterButton";

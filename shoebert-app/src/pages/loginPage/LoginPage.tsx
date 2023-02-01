@@ -13,7 +13,7 @@ const useStyles = createUseStyles({
     backgroundColor: theme.colors.lightPink,
     textAlign: "center",
     heigth: "79px",
-    padding: 41,
+/*     padding: 41, */
     fontSize: theme.spacing.l,
   },
 });
@@ -29,7 +29,6 @@ const LoginPage = () => {
       <a href="/register">
         <Button title={"Registreeru"} />
       </a>
-      ;
     </div>
   );
 };
